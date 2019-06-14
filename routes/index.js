@@ -1,5 +1,3 @@
-var express = require("express");
-
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
