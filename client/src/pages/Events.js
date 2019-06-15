@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 class Events extends React.Component {
   state = {
-    events: [{ name: "" }]
+    events: []
   };
 
   componentDidMount() {
@@ -19,14 +19,28 @@ class Events extends React.Component {
       )
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <div>
         <h1>Events</h1>
-        <p>{this.state.events[0].name}</p>
-        <p>{this.state.events[0].url}</p>
-        {/* <p>{this.state.events[0].dates}</p>
-        <p>{this.state.events[0].images}</p> */}
+        {this.state.events.length === 0 ? (
+          <p>Loading Events...</p>
+        ) : (
+          <div>
+            {this.state.events.map(function(event) {
+              return (
+                <div>
+                  <li>{event.name}</li>
+                  <li>{event.id}</li>
+                  <li>{event.url}</li>
+                  <li>{event.dates.start.dateTime}</li>
+                  <br />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
