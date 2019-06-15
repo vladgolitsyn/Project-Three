@@ -3,7 +3,6 @@ const routes = require("./routes");
 const app = express();
 const passport = require("passport");
 const flash = require("connect-flash");
-
 const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 let db = require("./models");
@@ -32,14 +31,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(flash());
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  res.locals.user = req.user || null;
-  next();
-});
+// app.use(flash());
+// app.use(function(req, res, next) {
+//   res.locals.success_msg = req.flash("success_msg");
+//   res.locals.error_msg = req.flash("error_msg");
+//   res.locals.error = req.flash("error");
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 app.use(routes);
 db.sequelize.sync().then(function() {
