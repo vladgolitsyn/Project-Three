@@ -1,10 +1,15 @@
 import React from "react";
-
+import Register from "./pages/Register";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <h1> PROJECT THREE</h1>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Register} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
