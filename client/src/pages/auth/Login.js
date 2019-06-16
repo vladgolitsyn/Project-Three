@@ -4,14 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 // import classnames from "classnames";
-import {
-  Button,
-  Checkbox,
-  Form,
-  Container,
-  Message,
-  Header
-} from "semantic-ui-react";
+import { Button, Form, Container, Message, Header } from "semantic-ui-react";
 class Login extends Component {
   constructor() {
     super();

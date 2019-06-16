@@ -16,7 +16,7 @@ export default class Nav extends Component {
           <Menu.Item
             name="home"
             as={Link}
-            to="/home"
+            to="/"
             active={activeItem === "home"}
             onClick={this.handleItemClick}
           />
@@ -30,10 +30,10 @@ export default class Nav extends Component {
 
           <Menu.Menu position="right">
             <Menu.Item
-              name="Sign In"
+              name="SignIn"
               as={Link}
               to="/login"
-              active={activeItem === "login"}
+              active={activeItem === "SignIn"}
               onClick={this.handleItemClick}
             />
           </Menu.Menu>
