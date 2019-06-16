@@ -4,7 +4,7 @@ import Map from "../components/map";
 
 class EventDetails extends React.Component {
   state = {
-    eventDetails: [{ name: "" }]
+    eventDetails: []
   };
 
   componentDidMount() {
@@ -20,15 +20,22 @@ class EventDetails extends React.Component {
       )
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <div>
         <h1>Event Details</h1>
-        <p>{this.state.eventDetails[0].name}</p>
-        <p>{this.state.eventDetails[0].url}</p>
-        {/* <p>{this.state.events[0].dates}</p>
-        <p>{this.state.events[0].images}</p> */}
-        <Map />
+        {this.state.eventDetails.length === 0 ? (
+          <p>Loading Event Details...</p>
+        ) : (
+          <div>
+            <p>{this.state.eventDetails[0].name}</p>
+            <p>{this.state.eventDetails[0].id}</p>
+            <p>{this.state.eventDetails[0].url}</p>
+            <p>{this.state.eventDetails[0].dates.start.dateTime}</p>
+            <p>{this.state.eventDetails[0].images.url}</p>
+          </div>
+        )}
       </div>
     );
   }
