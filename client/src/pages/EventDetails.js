@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../utils/API";
+import Map from "../components/map";
 
 class EventDetails extends React.Component {
   state = {
@@ -27,6 +28,7 @@ class EventDetails extends React.Component {
         <p>{this.state.eventDetails[0].url}</p>
         {/* <p>{this.state.events[0].dates}</p>
         <p>{this.state.events[0].images}</p> */}
+        <Map />
       </div>
     );
   }
