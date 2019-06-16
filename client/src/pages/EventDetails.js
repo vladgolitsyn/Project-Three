@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../utils/API";
-import Map from "../components/map";
+import Map from "../components/mapCopy";
 
 class EventDetails extends React.Component {
   state = {
@@ -36,6 +36,8 @@ class EventDetails extends React.Component {
             <p>{this.state.eventDetails[0].images.url}</p>
           </div>
         )}
+
+        <Map />
       </div>
     );
   }
