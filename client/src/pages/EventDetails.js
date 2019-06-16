@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../utils/API";
-import Map from "../components/mapCopy";
+import Map from "../components/Map/map";
 
 class EventDetails extends React.Component {
   state = {
