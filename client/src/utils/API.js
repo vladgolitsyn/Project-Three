@@ -3,10 +3,6 @@ import axios from "axios";
 const dotenv = require("dotenv").config();
 
 export default {
-  saveUsers: function(newUser) {
-    return axios.post("api/users/register", newUser);
-  },
-
   // retrieves a list of events using Ticketmaster Discovery API
   getEvents: function() {
     return axios.get(
