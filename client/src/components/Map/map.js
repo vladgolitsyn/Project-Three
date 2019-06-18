@@ -3,8 +3,8 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import API from "../../utils/API";
 
 const mapStyles = {
-  width: "50%",
-  height: "50%"
+  width: "350px",
+  height: "350px"
 };
 
 export class MapContainer extends Component {
@@ -79,7 +79,7 @@ export class MapContainer extends Component {
                   <p>
                     {this.state.eventDetails._embedded.venues[0].address.line1}
                   </p>
-                  <p>{this.state.eventDetails.name}</p>
+                  <p>Event: {this.state.eventDetails.name}</p>
                 </div>
               </InfoWindow>
             </Map>
