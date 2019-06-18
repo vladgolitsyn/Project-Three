@@ -32,8 +32,8 @@ class Chat extends Component{
 
     sendMessage = e => {
         const socket = socketIOClient('http://localhost:3001');
-        const {name, message} = this.state;
-        this.setState({name, message})
+   `     const {name, message} = this.state;
+        this.setState({name, message})`
         socket.on('new-message', (message) => {
             console.log(message);
         })
