@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../utils/API";
 import Map from "../components/Map/map";
+import SeatMap from "../components/SeatMap/index";
 
 class EventDetails extends React.Component {
   state = {
@@ -38,6 +39,7 @@ class EventDetails extends React.Component {
         )}
 
         <Map />
+        <SeatMap />
       </div>
     );
   }
