@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import { Container, Button, Form } from 'semantic-ui-react'
+
 
 export class Register extends Component {
   state = {
@@ -30,69 +32,35 @@ export class Register extends Component {
       .catch(err => console.log(err));
   };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.handleFormSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="name"
-                  placeholder="Enter Full Name"
-                  value={this.state.name}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder="Enter Email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="Enter Password"
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password2"
-                  placeholder="Confirm Password"
-                  value={this.state.password2}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Register
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
-  }
+
+
+render() {
+
+  return (
+    <Container>
+      <Form onSubmit={this.handleFormSubmit}>
+        <Form.Field>
+          <label id="email-label" htmlFor="email">Confirm Email</label>
+          <input id="email" type="email" placeholder='Confirm Email' />
+        </Form.Field>
+        <Form.Field>
+          <label id="name-label" htmlFor ="name">Name</label>
+          <input id="name" type="text" placeholder='Name' onChange={this.handleInputChange} />
+        </Form.Field>
+        <Form.Field>
+          <label id="lastName-label" htmlFor ="lastName">Last Name</label>
+          <input id="lastName" type="text" placeholder='Last Name' onChange={this.handleInputChange}  />
+        </Form.Field>
+        <Form.Field>
+          <label id="password-label" htmlFor ="password">Password</label>
+          <input type="password" name="password" placeholder='Password' onChange={this.handleInputChange}  />
+        </Form.Field>
+
+        <Button type='submit'>Sign Up</Button>
+      </Form>
+    </Container>
+  )
 }
+};
 
 export default Register;

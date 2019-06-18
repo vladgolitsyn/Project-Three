@@ -3,6 +3,9 @@ const routes = require("./routes");
 const app = express();
 const passport = require("passport");
 const flash = require("connect-flash");
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const cors = require('cors');
 
 const session = require("express-session");
 const PORT = process.env.PORT || 3001;
@@ -22,6 +25,24 @@ app.use(
     secret: "cool"
   })
 );
+
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    optionSuccessStatus: 200,
+    credentials: true
+  })
+)
+
+io.on('connection', (socket) => {
+  socket.on('client-message', (message) => {
+    console.log(message);
+    socket.emit('server-message', message);
+  });
+  socket.on('new-message', (message) => {
+    io.emit('new-message');
+  })
+});
 
 app.use(passport.session());
 
@@ -45,7 +66,7 @@ app.use(routes);
 db.sequelize.sync().then(function() {
   console.log("started!!!");
 
-  app.listen(PORT, function() {
-    console.log("App listening on http://localhost:" + PORT);
+http.listen(PORT, function() {
+  console.log("App listening on http://localhost:" + PORT);
   });
 });
