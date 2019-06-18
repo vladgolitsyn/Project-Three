@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../utils/API";
 import Map from "../components/Map/map";
-import SeatMap from "../components/SeatMap/index";
+import ArtistImage from "../components/ArtistImage/index";
 
 class EventDetails extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class EventDetails extends React.Component {
         )}
 
         <Map />
-        <SeatMap />
+        <ArtistImage />
       </div>
     );
   }
