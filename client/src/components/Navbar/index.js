@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Logout from "./Logout";
+import Logout from "../Logout";
 import { connect } from "react-redux";
-class Nav extends Component {
+class Navbar extends Component {
   state = { activeItem: "home" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -11,6 +11,7 @@ class Nav extends Component {
   render() {
     const { activeItem } = this.state;
     const { isAuthenticated, user } = this.props.auth;
+
     return (
       <div>
         <Menu pointing secondary>
@@ -21,17 +22,20 @@ class Nav extends Component {
             active={activeItem === "home"}
             onClick={this.handleItemClick}
           />
-          <Menu.Item
-            name="about"
-            as={Link}
-            to="/about"
-            active={activeItem === "about"}
-            onClick={this.handleItemClick}
-          />
+
           {isAuthenticated ? (
-            <Logout />
+            <Menu.Menu>
+              <Menu.Item
+                name="profile"
+                as={Link}
+                to="/profile"
+                active={activeItem === "profile"}
+                onClick={this.handleItemClick}
+              />
+              <Logout />
+            </Menu.Menu>
           ) : (
-            <Menu.Menu position="right">
+            <Menu.Menu>
               <Menu.Item
                 name="SignIn"
                 as={Link}
@@ -54,4 +58,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(Nav);
+)(Navbar);

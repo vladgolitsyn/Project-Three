@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
 // import { registerUser } from "../actions/authActions";
 // import { loginUser } from "../actions/authActions";
 import PropTypes from "prop-types";
@@ -13,7 +13,7 @@ export class Logout extends Component {
   };
   render() {
     return (
-      <Menu.Menu position="right">
+      <Menu.Menu>
         <Menu.Item onClick={this.onLogoutClick} href="/">
           Logout
         </Menu.Item>
@@ -24,7 +24,6 @@ export class Logout extends Component {
 
 Logout.propTypes = {
   logoutUser: PropTypes.func.isRequired
-  //   auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

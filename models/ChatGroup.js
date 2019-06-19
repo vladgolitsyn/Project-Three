@@ -1,10 +1,11 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Group = sequelize.define(
-    "Group",
+  const ChatGroup = sequelize.define(
+    "ChatGroup",
     {
       name: { type: DataTypes.STRING, validate: { notEmpty: true } },
-      eventName: { type: DataTypes.STRING, validate: { notEmpty: true } },
+      eventName: { type: DataTypes.STRING, validate: { isEmail: true } },
+      url: { type: DataTypes.STRING, validate: { notEmpty: true } },
 
       createdAt: {
         allowNull: false,
@@ -17,12 +18,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Group.associate = models => {
-    Group.belongsToMany(models.User, {
-      through: "GroupUsers",
-      as: "user",
+
+  ChatGroup.associate = models => {
+    ChatGroup.belongsToMany(models.User, {
+      through: "UserGroup",
+      as: "users",
       foreignKey: "groupId"
     });
   };
-  return Group;
+  return ChatGroup;
 };

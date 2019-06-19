@@ -21,7 +21,7 @@ function Home() {
 
       <br />
       <div className="container">
-        <Header as="h1" color="red" font-size="10px" textAlign="center">
+        <Header as="h1" color="red" fontSize="10px" textAlign="center">
           You are not Alone. We will help you find Friends to attend the show.{" "}
         </Header>
       </div>

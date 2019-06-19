@@ -30,6 +30,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+
 db.sequelize.sync().then(function() {
   console.log("started!!!");
 
