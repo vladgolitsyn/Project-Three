@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-export default class SeatMap extends Component {
+export default class ArtistImage extends Component {
   state = {
     eventDetails: []
   };

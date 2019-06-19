@@ -1,7 +1,8 @@
 import React from "react";
 import API from "../utils/API";
-import Map from "../components/Map/map";
+// import Map from "../components/Map/map";
 import ArtistImage from "../components/ArtistImage/index";
+import SeatMap from "../components/SeatMap";
 
 class EventDetails extends React.Component {
   state = {
@@ -31,15 +32,20 @@ class EventDetails extends React.Component {
         ) : (
           <div>
             <p>{this.state.eventDetails[0].name}</p>
-            <p>{this.state.eventDetails[0].id}</p>
-            <p>{this.state.eventDetails[0].url}</p>
+            <p>{this.state.eventDetails[0]._embedded.venues[0].name}</p>
+            <p>
+              {this.state.eventDetails[0]._embedded.venues[0].address.line1}
+            </p>
             <p>{this.state.eventDetails[0].dates.start.dateTime}</p>
             <p>{this.state.eventDetails[0].images.url}</p>
+            <a href={this.state.eventDetails[0].url}>Buy Tickets</a>
           </div>
         )}
-
-        <Map />
+        {/* 
+        <Map /> */}
         <ArtistImage />
+
+        <SeatMap />
       </div>
     );
   }
