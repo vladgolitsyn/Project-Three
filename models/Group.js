@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Chat = sequelize.define(
-    "Chat",
+  const Group = sequelize.define(
+    "Group",
     {
       name: { type: DataTypes.STRING, validate: { notEmpty: true } },
       eventName: { type: DataTypes.STRING, validate: { notEmpty: true } },
@@ -17,25 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Chat.associate = function(models) {
-    // associations can be defined here
-    // Chat.hasMany(models.User, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
+  Group.associate = models => {
+    Group.belongsToMany(models.User, {
+      through: "GroupUsers",
+      as: "user",
+      foreignKey: "groupId"
+    });
   };
-  return Chat;
+  return Group;
 };
-
-// Parent.belongsToMany( Child, {
-//   as: [Relationship],
-//   through: [Parent_Child] //this can be string or a model,
-//   foreignKey: 'Parent_rowId'
-// });
-
-// Child.belongsToMany(Parent, {
-//   as: [Relationship2],
-//   through: [Parent_Child],
-//   foreignKey: 'Child_rowId'
-// });

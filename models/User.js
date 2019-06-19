@@ -19,14 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  User.associate = function(models) {
-    // associations can be defined here
-    // User.hasMany(models.Chat, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
-    // User.belongsToMany(Group, { through: UserGroup });
+
+  User.associate = models => {
+    User.belongsToMany(models.Group, {
+      through: "GroupUser",
+      as: "group",
+      foreignKey: "userId"
+    });
   };
   return User;
 };
