@@ -10,8 +10,10 @@ export default {
   },
 
   getEventDetails: function() {
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
     return axios.get(
-      "https://app.ticketmaster.com/discovery/v2/events/?id=Z7r9jZ1Ae_0Co&apikey=" +
+      proxyurl +
+        "https://app.ticketmaster.com/discovery/v2/events/?keyword=ariana_grande&apikey=" +
         process.env.REACT_APP_TICKETMASTER_API_KEY
     );
   }
