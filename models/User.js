@@ -1,4 +1,5 @@
 "use strict";
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
@@ -20,9 +21,12 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.associate = function(models) {
     // associations can be defined here
-    // User.hasMany(models.Groups, {
-    //   onDelete: "cascade"
+    // User.hasMany(models.Chat, {
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
     // });
+    // User.belongsToMany(Group, { through: UserGroup });
   };
   return User;
 };

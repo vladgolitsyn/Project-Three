@@ -12,6 +12,7 @@ import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events";
+import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails";
 
 // Check for token to keep user logged in
@@ -40,8 +41,8 @@ class App extends Component {
         <Router>
           <div>
             <Navbar />
-//             <Route exact path="/" component={Landing} />
-      <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Landing} /> */}
+            <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/Events" component={Events} />
