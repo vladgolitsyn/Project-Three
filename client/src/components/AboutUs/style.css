@@ -1,0 +1,12 @@
+p {
+  font-size: 18px;
+}
+.aboutUs {
+  background-color: beige;
+}
+.logo {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
