@@ -21,7 +21,7 @@ class Chat extends Component{
         });
 
         this.socket.on('new-message', message => {
-            const { messages } = this. state;
+            const { messages } = this.state;
             const udpatedMessages = [...messages, message];
             this.setState({ messages: udpatedMessages });
         });
