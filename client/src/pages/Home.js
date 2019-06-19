@@ -1,11 +1,10 @@
 import React from "react";
 import Footer from "../components/Footer";
 // import SearchForm from "../components/searchField";
-import pic from "../images/005.jpg";
-import CardExampleCardProps from "../components/Developers";
+// import pic from "../images/005.jpg";
 import SimpleSlider from "../components/SimpleSlider";
-import Btn from "../components/Btn";
-import { Search, Image, Grid, Divider, Header } from "semantic-ui-react";
+
+import { Divider, Header } from "semantic-ui-react";
 import AboutUs from "../components/AboutUs";
 import Developers from "../components/Developers";
 import SearchField from "../components/SearchField";
@@ -13,16 +12,8 @@ import SearchField from "../components/SearchField";
 function Home() {
   return (
     <div>
-      <div className="container">
-        <Header size="huge">Project Three</Header>{" "}
-      </div>
-      <Image src={pic} width="100%" height="auto" />
-
+      <SimpleSlider />
       <div className="bg">
-        <div className="container">
-          <Btn />
-        </div>
-
         <div className="container">
           <SearchField />
         </div>
@@ -30,7 +21,7 @@ function Home() {
 
       <br />
       <div className="container">
-        <Header as="h1" color="green" font-size="100px" textAlign="center">
+        <Header as="h1" color="red" font-size="10px" textAlign="center">
           You are not Alone. We will help you find Friends to attend the show.{" "}
         </Header>
       </div>
@@ -40,6 +31,7 @@ function Home() {
       </div>
 
       <Divider />
+      <br />
       {/* about us section  */}
       <div className="container">
         <Header as="h1" color="violet" textAlign="center">
@@ -47,7 +39,8 @@ function Home() {
         </Header>
         <AboutUs />
       </div>
-
+      <br />
+      <br />
       {/* Developers */}
       <div className="container">
         <Header as="h1" color="violet" textAlign="center">
