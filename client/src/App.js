@@ -13,6 +13,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events";
 import EventDetails from "./pages/EventDetails";
+import Chat from "./pages/chat/Chat";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/Events" component={Events} />
             <Route exact path="/EventDetails" component={EventDetails} />
+            <Route exact path="/chat" component={Chat} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
