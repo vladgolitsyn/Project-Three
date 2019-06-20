@@ -27,26 +27,50 @@ class EventDetailsCard extends React.Component {
   render() {
     return (
       <div>
-        <h1>Event Details</h1>
         {this.state.eventDetails.length === 0 ? (
           <p>Loading Event Details...</p>
         ) : (
           <div>
-            <h2>{this.state.eventDetails[0].name}</h2>
-            <p>{this.state.eventDetails[0]._embedded.venues[0].name}</p>
-            <p>
-              {this.state.eventDetails[0]._embedded.venues[0].address.line1}
-            </p>
-            <p>{this.state.eventDetails[0].dates.start.dateTime}</p>
-            <p>{this.state.eventDetails[0].images.url}</p>
             <a href={this.state.eventDetails[0].url}>Buy Tickets</a>
             <ArtistImage />
 
             <div className="event-details-card">
-              <img
-                src="https://assets.teenvogue.com/photos/5ad9032b73a9c74b3611437c/16:9/w_1280%2Cc_limit/ariana-grande-high-ponytail-to-low-new-album.jpg"
-                className="artist-poster"
-              />
+              <div className="thumbnail">
+                <img
+                  src={this.state.eventDetails[1].images[0].url}
+                  className="artist-poster"
+                />
+              </div>
+              <div className="event-details-content">
+                <h1 className="artist-name">
+                  {this.state.eventDetails[0].name}
+                </h1>
+                <div className="separator" />
+                <p>{this.state.eventDetails[0]._embedded.venues[0].name}</p>
+                <p>
+                  {this.state.eventDetails[0]._embedded.venues[0].address.line1}
+                </p>
+                <p>{this.state.eventDetails[0].dates.start.dateTime}</p>
+                <p>{this.state.eventDetails[0].images.url}</p>
+              </div>
+              <div className="date-and-icons">
+                <h5>12</h5>
+                <h6>JANUARY</h6>
+                <ul>
+                  <li>
+                    <i class="fas fa-share-alt fa-3x" />
+                  </li>
+                  <li>
+                    <i class="fas fa-share-alt fa-3x" />
+                  </li>
+                  <li>
+                    <i class="fas fa-share-alt fa-3x" />
+                  </li>
+                  <li>
+                    <i class="fas fa-share-alt fa-3x" />
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         )}
