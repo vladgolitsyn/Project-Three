@@ -1,8 +1,8 @@
 import React from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 // import Map from "../components/Map/map";
-import ArtistImage from "../components/ArtistImage/index";
-import SeatMap from "../components/SeatMap";
+import ArtistImage from "../../components/ArtistImage/index";
+import SeatMap from "../../components/SeatMap";
 
 class EventDetails extends React.Component {
   state = {

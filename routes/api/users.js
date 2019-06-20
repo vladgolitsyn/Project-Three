@@ -8,7 +8,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 const User = require("../../models/").User;
-const Group = require("../../models/").ChatGroup;
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
