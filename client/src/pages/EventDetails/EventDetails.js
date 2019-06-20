@@ -3,7 +3,7 @@ import React from "react";
 // import Map from "../components/Map/map";
 // import ArtistImage from "../components/ArtistImage/index";
 // import SeatMap from "../components/SeatMap";
-import EventDetailsCard from "../components/EventDetailsCard/index";
+import EventDetailsCard from "../../components/EventDetailsCard";
 
 function EventDetails() {
   // state = {

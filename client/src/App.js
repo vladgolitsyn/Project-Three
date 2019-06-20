@@ -11,9 +11,9 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Events from "./pages/Events";
+import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
-import EventDetails from "./pages/EventDetails";
+import EventDetails from "./pages/EventDetails/EventDetails";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -45,7 +45,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/Events" component={Events} />
+            <Route exact path="/signin" component={Login} />
+            <Route exact path="/event" component={Events} />
             <Route exact path="/EventDetails" component={EventDetails} />
             <Switch>
               <PrivateRoute exact path="/profile" component={Dashboard} />
