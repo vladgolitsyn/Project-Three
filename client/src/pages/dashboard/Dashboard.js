@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import { Button, Container, Header, Icon } from "semantic-ui-react";
+import style from "./style.css";
+import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
 
 class Dashboard extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
+  onClick = () => {
+    this.props.history.push("/chat");
   };
 
   render() {
@@ -22,10 +21,13 @@ class Dashboard extends Component {
         <Container fluid>
           <Header as="h2" icon textAlign="center">
             <Icon name="users" circular />
-
             <Header.Content> Welcome, {name}</Header.Content>
+
+            <Header.Content className="eventName"> Event Name</Header.Content>
+            <Button className="eventGroup" onClick={this.onClick}>
+              Go to Event Group
+            </Button>
           </Header>
-          <Button onClick={this.onLogoutClick}>Logout</Button>
         </Container>
       </div>
     );
@@ -33,7 +35,6 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -41,7 +42,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

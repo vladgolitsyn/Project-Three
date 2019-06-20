@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 let db = require("./models");
 
 const users = require("./routes/api/users");
+const chat = require("./routes/api/chat");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -55,6 +56,8 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+app.use("/api/users", chat);
+
 db.sequelize.sync().then(function() {
   console.log("started!!!");
 

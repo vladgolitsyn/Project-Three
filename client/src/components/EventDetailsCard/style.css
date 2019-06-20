@@ -1,0 +1,82 @@
+.event-details-card {
+  position: relative;
+  height: 450px;
+  width: 900px;
+  margin: 200px auto;
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+}
+
+.artist-poster {
+  float: left;
+  position: relative;
+  left: 30px;
+  top: -30px;
+  height: 320px;
+  width: 530px;
+  -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-details-content {
+  margin-left: 590px;
+  margin-right: 20px;
+  padding-top: 40px;
+}
+
+.artist-name {
+  padding-top: 15px;
+  color: #4b4b4b;
+}
+
+.separator {
+  margin: 10px 0;
+  border: 1px solid rgb(53, 53, 53);
+}
+
+p {
+  text-align: justify;
+  padding-top: 10px;
+  font-size: 1.25rem;
+  line-height: 125%;
+  color: #4b4b4b;
+}
+
+.date-and-icons {
+  position: absolute;
+  bottom: 0;
+}
+
+h5 {
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+  font-size: 6rem;
+  color: #c3c3c3;
+}
+
+h6 {
+  position: absolute;
+  left: 30px;
+  bottom: 0px;
+  font-size: 2rem;
+  color: #c3c3c3;
+}
+
+/* Those futur buttons */
+ul {
+  margin-left: 250px;
+}
+
+li {
+  display: inline;
+  list-style: none;
+  padding-right: 75px;
+  color: #7b7b7b;
+}
