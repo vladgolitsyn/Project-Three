@@ -24,7 +24,7 @@ class Events extends React.Component {
 
   // For testing purpose
   onClick = () => {
-    this.props.history.push("/signin");
+    this.props.history.push("/login");
   };
 
   render() {
