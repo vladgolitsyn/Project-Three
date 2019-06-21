@@ -10,6 +10,7 @@
 
 .ui.negative.button {
   width: 104%;
+  margin-bottom: 40px;
 }
 
 .ui.form input:not([type]),
@@ -48,6 +49,7 @@ div.ui.icon.red.message {
 
 .ui.olive.button {
   width: 105%;
+  margin-bottom: 40px;
 }
 
 .ui.icon.header .icon {

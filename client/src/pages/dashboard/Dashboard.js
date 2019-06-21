@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
-import { Button, Container, Header, Icon } from "semantic-ui-react";
+import style from "./style.css";
+import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
 
 class Dashboard extends Component {
+  onClick = () => {
+    this.props.history.push("/chat");
+  };
+
   render() {
     const { user } = this.props.auth;
     const name = user.name
@@ -18,8 +22,12 @@ class Dashboard extends Component {
           <Header as="h2" icon textAlign="center">
             <Icon name="users" circular />
             <Header.Content> Welcome, {name}</Header.Content>
+
+            <Header.Content className="eventName"> Event Name</Header.Content>
+            <Button className="eventGroup" onClick={this.onClick}>
+              Go to Event Group
+            </Button>
           </Header>
-          <Button>Goin Group</Button>
         </Container>
       </div>
     );

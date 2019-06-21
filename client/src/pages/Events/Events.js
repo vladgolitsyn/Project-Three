@@ -1,6 +1,7 @@
 import React from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 import { Container, Header, Button } from "semantic-ui-react";
+import style from "./style.css";
 
 class Events extends React.Component {
   state = {
@@ -21,10 +22,21 @@ class Events extends React.Component {
       .catch(err => console.log(err));
   };
 
+  // For testing purpose
+  onClick = () => {
+    this.props.history.push("/login");
+  };
+
   render() {
     return (
       <Container>
         <div>
+          <Header>
+            This button is just for testing
+            <Button className="eventGroup" onClick={this.onClick}>
+              User will click her to create a group
+            </Button>
+          </Header>
           <h1>Events</h1>
           {this.state.events.length === 0 ? (
             <p>Loading Events...</p>

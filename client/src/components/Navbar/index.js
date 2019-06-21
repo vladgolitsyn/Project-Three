@@ -22,6 +22,13 @@ class Navbar extends Component {
             active={activeItem === "home"}
             onClick={this.handleItemClick}
           />
+          <Menu.Item
+            name="event"
+            as={Link}
+            to="/event"
+            active={activeItem === "event"}
+            onClick={this.handleItemClick}
+          />
 
           {isAuthenticated ? (
             <Menu.Menu>
@@ -30,6 +37,13 @@ class Navbar extends Component {
                 as={Link}
                 to="/profile"
                 active={activeItem === "profile"}
+                onClick={this.handleItemClick}
+              />
+              <Menu.Item
+                name="chat"
+                as={Link}
+                to="/chat"
+                active={activeItem === "chat"}
                 onClick={this.handleItemClick}
               />
               <Logout />
