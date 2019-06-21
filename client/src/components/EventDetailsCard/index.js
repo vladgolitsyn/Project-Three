@@ -55,6 +55,8 @@ class EventDetailsCard extends React.Component {
                 <p>{this.state.eventDetails[0]._embedded.venues[0].name}</p>
                 <p>
                   {this.state.eventDetails[0]._embedded.venues[0].address.line1}
+                  {", "}
+                  {this.state.eventDetails[0]._embedded.venues[0].city.name}
                 </p>
                 <p>
                   {" "}
