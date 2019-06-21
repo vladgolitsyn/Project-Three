@@ -33,6 +33,13 @@ class EventDetailsCard extends React.Component {
         ) : (
           <div>
             {/* <a href={this.state.eventDetails[0].url}>Buy Tickets</a> */}
+            <div className="event-details-header">
+              <h1>Event Details</h1>
+              <a className="event-return-btn">
+                <i className="fas fa-undo-alt event-return-btn-icon" />
+                Go Back
+              </a>
+            </div>
             <div className="event-details-card">
               <div className="thumbnail">
                 <img

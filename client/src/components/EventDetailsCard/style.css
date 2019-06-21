@@ -1,8 +1,24 @@
+.event-details-header {
+  position: relative;
+  display: block;
+  width: 900px;
+  margin: 50px auto;
+}
+
+.event-return-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.event-return-btn-icon {
+  padding-right: 5px;
+}
+
 .event-details-card {
   position: relative;
   height: 450px;
   width: 900px;
-  margin: 200px auto;
+  margin: 85px auto;
   background-color: #fff;
   -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
