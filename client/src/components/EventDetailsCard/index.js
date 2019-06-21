@@ -28,18 +28,17 @@ class EventDetailsCard extends React.Component {
   render() {
     return (
       <div>
+        <div className="event-details-header">
+          <h1>Events</h1>
+          <a className="event-return-btn">
+            <i className="fas fa-undo-alt event-return-btn-icon" />
+            Go Back
+          </a>
+        </div>
         {this.state.eventDetails.length === 0 ? (
           <p>Loading Event Details...</p>
         ) : (
           <div>
-            {/* <a href={this.state.eventDetails[0].url}>Buy Tickets</a> */}
-            <div className="event-details-header">
-              <h1>Event Details</h1>
-              <a className="event-return-btn">
-                <i className="fas fa-undo-alt event-return-btn-icon" />
-                Go Back
-              </a>
-            </div>
             <div className="event-details-card">
               <div className="thumbnail">
                 <img
@@ -86,7 +85,7 @@ class EventDetailsCard extends React.Component {
                     this.state.eventDetails[0].dates.start.dateTime
                   ).format("MMMM")}
                 </h6>
-                <ul>
+                <ul className="selected-event-icons">
                   <li>
                     <i className="fas fa-users fa-2x event-icons" />
                   </li>
