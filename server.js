@@ -42,7 +42,14 @@ io.on('connection', (socket) => {
   socket.on('connect', (message) => {
     console.log("This is the server message" + message);
     socket.emit('server-message', "welcome");
+    socket.join('join', message);
   });
+  socket.on('join', name => {
+    socket.join(name)
+    console.log(`${name} joined the chat`)
+  })
+  // io.on('connection', function(data){
+  // });
   socket.on('new-message', (message) => {
     console.log(message);
     // write message to db
