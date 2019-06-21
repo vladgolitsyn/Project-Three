@@ -2,6 +2,7 @@ import React from "react";
 import API from "../../utils/API";
 import { Container, Header, Button } from "semantic-ui-react";
 import style from "./style.css";
+import EventCard from "../../components/EventsCard/index";
 
 class Events extends React.Component {
   state = {
@@ -45,6 +46,8 @@ class Events extends React.Component {
               {this.state.events.map(function(event) {
                 return (
                   <div>
+                    <EventCard />
+
                     <li>{event.name}</li>
                     <li>{event.id}</li>
                     <li>{event.url}</li>
