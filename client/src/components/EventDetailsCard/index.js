@@ -1,9 +1,10 @@
 import React from "react";
 import API from "../../utils/API";
 // import Map from "../components/Map/map";
-import ArtistImage from "../ArtistImage/index";
+// import ArtistImage from "../ArtistImage/index";
 // import SeatMap from "../SeatMap/index";
 import "./style.css";
+import moment from "moment";
 
 class EventDetailsCard extends React.Component {
   state = {
@@ -31,13 +32,11 @@ class EventDetailsCard extends React.Component {
           <p>Loading Event Details...</p>
         ) : (
           <div>
-            <a href={this.state.eventDetails[0].url}>Buy Tickets</a>
-            <ArtistImage />
-
+            {/* <a href={this.state.eventDetails[0].url}>Buy Tickets</a> */}
             <div className="event-details-card">
               <div className="thumbnail">
                 <img
-                  src={this.state.eventDetails[1].images[0].url}
+                  src={this.state.eventDetails[0].images[1].url}
                   className="artist-poster"
                 />
               </div>
@@ -50,24 +49,43 @@ class EventDetailsCard extends React.Component {
                 <p>
                   {this.state.eventDetails[0]._embedded.venues[0].address.line1}
                 </p>
-                <p>{this.state.eventDetails[0].dates.start.dateTime}</p>
+                <p>
+                  {" "}
+                  {moment(
+                    this.state.eventDetails[0].dates.start.dateTime
+                  ).format("dddd, MMMM Do YYYY")}
+                </p>
+                <p>
+                  Event Starts:{" "}
+                  {moment(
+                    this.state.eventDetails[0].dates.start.localTime,
+                    "HH:mm"
+                  ).format("h:mm A")}
+                </p>
                 <p>{this.state.eventDetails[0].images.url}</p>
               </div>
               <div className="date-and-icons">
-                <h5>12</h5>
-                <h6>JANUARY</h6>
+                <h5 className="large-date">
+                  {" "}
+                  {moment(
+                    this.state.eventDetails[0].dates.start.dateTime
+                  ).format("DD")}
+                </h5>
+                <h6>
+                  {" "}
+                  {moment(
+                    this.state.eventDetails[0].dates.start.dateTime
+                  ).format("MMMM")}
+                </h6>
                 <ul>
                   <li>
-                    <i class="fas fa-share-alt fa-3x" />
+                    <i className="fas fa-users fa-2x event-icons" />
                   </li>
                   <li>
-                    <i class="fas fa-share-alt fa-3x" />
+                    <i className="fas fa-map-marker-alt fa-2x event-icons" />
                   </li>
                   <li>
-                    <i class="fas fa-share-alt fa-3x" />
-                  </li>
-                  <li>
-                    <i class="fas fa-share-alt fa-3x" />
+                    <i className="fas fa-map-signs fa-2x event-icons" />
                   </li>
                 </ul>
               </div>

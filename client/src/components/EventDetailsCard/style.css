@@ -27,11 +27,10 @@
 .event-details-content {
   margin-left: 590px;
   margin-right: 20px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .artist-name {
-  padding-top: 15px;
   color: #4b4b4b;
 }
 
@@ -43,7 +42,7 @@
 p {
   text-align: justify;
   padding-top: 10px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 125%;
   color: #4b4b4b;
 }
@@ -71,12 +70,22 @@ h6 {
 
 /* Those futur buttons */
 ul {
-  margin-left: 250px;
+  margin-left: 325px;
+  margin-bottom: 15px;
 }
 
 li {
   display: inline;
   list-style: none;
-  padding-right: 75px;
+  padding-right: 150px;
   color: #7b7b7b;
+}
+
+.event-icons:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.large-date {
+  padding-left: 15px;
 }
