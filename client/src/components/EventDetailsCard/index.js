@@ -29,7 +29,7 @@ class EventDetailsCard extends React.Component {
     return (
       <div>
         <div className="event-details-header">
-          <h1>Events</h1>
+          <h1>Events Details</h1>
           <a className="event-return-btn">
             <i className="fas fa-undo-alt event-return-btn-icon" />
             Go Back

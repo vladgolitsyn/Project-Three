@@ -4,9 +4,9 @@
   width: 900px;
   margin: 50px auto;
   background-color: #fff;
-  -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
 .list--event-card:hover {
