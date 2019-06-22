@@ -26,13 +26,13 @@ class EventCard extends React.Component {
     return (
       <div>
         {this.state.eventDetails.length === 0 ? (
-          <p>Loading Event Details...</p>
+          <div />
         ) : (
           <div>
             <div className="list--event-card">
               <div className="list--thumbnail">
                 <img
-                  src={this.state.eventDetails[0].images[4].url}
+                  src={this.state.eventDetails[0].images[5].url}
                   className="list--artist-poster"
                 />
               </div>
