@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
-import API from "../../utils/API";
 
 const mapStyles = {
-  width: "350px",
-  height: "350px"
+  width: "600px",
+  height: "500px",
+  display: "block",
+  margin: "0 auto"
 };
 
 export class MapContainer extends Component {
@@ -14,20 +15,6 @@ export class MapContainer extends Component {
     selectedPlace: {}, //Shows the infoWindow to the selected place upon a marker
     eventDetails: []
   };
-
-  // componentDidMount() {
-  //   this.loadEventDetails();
-  // }
-
-  // loadEventDetails = () => {
-  //   API.getEventDetails()
-  //     .then(res =>
-  //       this.setState({
-  //         eventDetails: res.data._embedded.events[0]
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
