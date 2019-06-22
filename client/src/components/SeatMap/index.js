@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const seatmapStyles = {
   display: "block",
-  margin: "0 auto"
+  margin: "10px auto 100px auto"
 };
 
 export default class ArtistImage extends Component {

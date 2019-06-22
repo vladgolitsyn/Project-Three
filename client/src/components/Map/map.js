@@ -5,7 +5,7 @@ const mapStyles = {
   width: "600px",
   height: "500px",
   display: "block",
-  margin: "0 auto"
+  margin: "50px auto 0px auto"
 };
 
 export class MapContainer extends Component {
