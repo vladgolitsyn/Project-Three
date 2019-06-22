@@ -64,7 +64,7 @@ class EventDetailsCard extends React.Component {
                   ).format("dddd, MMMM Do YYYY")}
                 </p>
                 <p>
-                  Event Starts:{" "}
+                  Event Start:{" "}
                   {moment(
                     this.state.eventDetails[0].dates.start.localTime,
                     "HH:mm"
@@ -79,7 +79,7 @@ class EventDetailsCard extends React.Component {
                     this.state.eventDetails[0].dates.start.dateTime
                   ).format("DD")}
                 </h5>
-                <h6>
+                <h6 className="large-month">
                   {" "}
                   {moment(
                     this.state.eventDetails[0].dates.start.dateTime

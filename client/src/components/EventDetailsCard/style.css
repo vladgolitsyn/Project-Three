@@ -55,7 +55,7 @@
   border: 1px solid rgb(53, 53, 53);
 }
 
-p {
+.event-details-content p {
   text-align: justify;
   padding-top: 10px;
   font-size: 1.5rem;
@@ -68,7 +68,7 @@ p {
   bottom: 0;
 }
 
-h5 {
+.large-date {
   position: absolute;
   left: 30px;
   bottom: 10px;
@@ -76,7 +76,7 @@ h5 {
   color: #c3c3c3;
 }
 
-h6 {
+.large-month {
   position: absolute;
   left: 30px;
   bottom: 0px;
@@ -90,7 +90,7 @@ h6 {
   margin-bottom: 15px;
 }
 
-li {
+.selected-event-icons li {
   display: inline;
   list-style: none;
   padding-right: 150px;
