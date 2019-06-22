@@ -1,36 +1,14 @@
 import React from "react";
-import API from "../../utils/API";
-// import Map from "../components/Map/map";
-// import ArtistImage from "../ArtistImage/index";
-// import SeatMap from "../SeatMap/index";
 import "./style.css";
 import moment from "moment";
 
 class EventDetailsCard extends React.Component {
-  state = {
-    eventDetails: []
-  };
-
-  // componentDidMount() {
-  //   this.loadEventDetails();
-  // }
-
-  // loadEventDetails = () => {
-  //   API.getEventDetails()
-  //     .then(res =>
-  //       this.setState({
-  //         eventDetails: res.data._embedded.events
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
   render() {
     console.log("DEBUG", this.props.eventDetails);
     return (
       <div>
         <div className="event-details-header">
-          <h1>Events Details</h1>
+          <h1>Event Details</h1>
           <a className="event-return-btn">
             <i className="fas fa-undo-alt event-return-btn-icon" />
             Go Back
@@ -99,10 +77,6 @@ class EventDetailsCard extends React.Component {
             </div>
           </div>
         )}
-        {/* 
-        <Map /> */}
-
-        {/* <SeatMap /> */}
       </div>
     );
   }
