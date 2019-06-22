@@ -1,8 +1,9 @@
 import React from "react";
 import API from "../../utils/API";
 import { Container, Header, Button } from "semantic-ui-react";
-import style from "./style.css";
+// import style from "./style.css";
 import EventCard from "../../components/EventsCard/index";
+import EventListHeader from "../../components/EventListHeader/index";
 
 class Events extends React.Component {
   state = {
@@ -38,7 +39,7 @@ class Events extends React.Component {
               User will click her to create a group
             </Button>
           </Header>
-          <h1>Events</h1>
+          <EventListHeader />
           {this.state.events.length === 0 ? (
             <p>Loading Events...</p>
           ) : (
@@ -47,12 +48,6 @@ class Events extends React.Component {
                 return (
                   <div>
                     <EventCard />
-
-                    <li>{event.name}</li>
-                    <li>{event.id}</li>
-                    <li>{event.url}</li>
-                    <li>{event.dates.start.dateTime}</li>
-                    <br />
                   </div>
                 );
               })}

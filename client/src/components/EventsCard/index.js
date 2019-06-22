@@ -29,22 +29,24 @@ class EventCard extends React.Component {
           <p>Loading Event Details...</p>
         ) : (
           <div>
-            <div className="event-header">
-              <h1>Event Details</h1>
-              <a className="event-return-btn">
-                <i className="fas fa-undo-alt event-return-btn-icon" />
-                Go Back
-              </a>
-            </div>
             <div className="list--event-card">
               <div className="list--thumbnail">
                 <img
-                  src={this.state.eventDetails[0].images[1].url}
+                  src={this.state.eventDetails[0].images[4].url}
                   className="list--artist-poster"
                 />
               </div>
               <div className="list--event-card-title">
-                <h1 className="list--event-name">Ariana Grande</h1>
+                <h1 className="list--event-name">
+                  {this.state.eventDetails[0].name}
+                  {" - "}
+                  {this.state.eventDetails[0]._embedded.venues[0].city.name}
+                  {", "}
+                  {
+                    this.state.eventDetails[0]._embedded.venues[0].country
+                      .countryCode
+                  }
+                </h1>
               </div>
               <ul className="list--event-details">
                 <li>{this.state.eventDetails[0]._embedded.venues[0].name}</li>
@@ -56,7 +58,7 @@ class EventCard extends React.Component {
                 </li>
 
                 <li>
-                  Event Starts:{" "}
+                  Event Start:{" "}
                   {moment(
                     this.state.eventDetails[0].dates.start.localTime,
                     "HH:mm"

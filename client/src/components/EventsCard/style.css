@@ -1,28 +1,18 @@
-.event-header {
-  position: relative;
-  display: block;
-  width: 900px;
-  margin: 50px auto;
-}
-
-.event-return-btn:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.event-return-btn-icon {
-  padding-right: 5px;
-}
-
 .list--event-card {
   position: relative;
   height: 200px;
   width: 900px;
-  margin: 85px auto;
+  margin: 50px auto;
   background-color: #fff;
   -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+}
+
+.list--event-card:hover {
+  cursor: pointer;
+  transition: 200ms ease;
+  transform: scale(1.05);
 }
 
 .list--artist-poster {
@@ -52,19 +42,23 @@
   height: 100px;
   padding-left: 20px;
   line-height: 100px;
+  text-decoration: underline;
+}
+
+.list--separator {
+  border: 1px solid rgb(53, 53, 53);
 }
 
 .list--event-details {
   position: absolute;
   bottom: 0;
-  margin-bottom: 15px;
   width: 100%;
-  border: 2px solid red;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .list--event-details li {
   display: inline;
   list-style: none;
-  padding-right: 150px;
   color: #7b7b7b;
 }
