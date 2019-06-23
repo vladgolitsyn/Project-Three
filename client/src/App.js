@@ -15,6 +15,11 @@ import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import Chat from "./pages/chat/Chat";
+import io from "socket.io-client";
+
+const socket = io('http://localhost:3001', {
+  transports: ['websocket']
+})
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -49,9 +54,9 @@ class App extends Component {
             <Route exact path="/signin" component={Login} />
             <Route exact path="/event" component={Events} />
             <Route exact path="/EventDetails" component={EventDetails} />
-            <Route exact path="/chat" component={Chat} />
+            <Route exact path="/chat" render={() => <Chat socket={socket}/>} />
             <Switch>
-              <PrivateRoute exact path="/profile" component={Dashboard} />
+              <Route exact path="/profile" render={()=> <Dashboard socket={socket}/>}/>
             </Switch>
           </div>
         </Router>

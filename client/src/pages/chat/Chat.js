@@ -1,26 +1,31 @@
-    
 import React, {Component} from "react";
-import socketIOClient from "socket.io-client";
+// import socketIOClient from "socket.io-client";
 import {Container, Header, Comment, Divider, Form} from 'semantic-ui-react';
 
 class Chat extends Component{
-    socket = null;
+    // constructor(props) {
+    //     super(props)
 
-    state = {
-        name: '',
-        message: '',
-        messages: []
-    };
+        state = {
+            name: '',
+            message: '',
+            messages: []
+        };
+    // }
+     // socket = null;
+
+
     
     componentDidMount() {
-        this.socket = socketIOClient('http://localhost:3001', {
-            transports: ['websocket']
-          });
-        this.socket.on('connect', () => {
+        const { socket } = this.props;
+
+        // this.socket = socketIOClient('http://localhost:3001', {
+        //     transports: ['websocket']
+        //   });
+        socket.on('connect', () => {
             console.log('connected')
         });
-
-        this.socket.on('new-message', message => {
+        socket.on('new-message', message => {
             const { messages } = this.state;
             const udpatedMessages = [...messages, message];
             this.setState({ messages: udpatedMessages });
@@ -34,10 +39,11 @@ class Chat extends Component{
     }
 
     sendMessage = e => {
+        const { socket } = this.props;
         const {name, message} = this.state;
         this.setState({name, message})
         const user = 'user1';
-        this.socket.emit('new-message', `${user}: ${message}`)
+        socket.emit('new-message', `${user}: ${message}`)
         console.log(this.state.message);
     }
 
@@ -51,9 +57,9 @@ class Chat extends Component{
                     </Header>
 
                     <div className="messages">
-                        {this.state.messages.map(message => {
+                        {this.state.messages.map((message, index) => {
                             return ( 
-                                <Comment>
+                                <Comment key={index}>
                                     <Comment.Content>     
                                         {/* <Comment.Author>Name: {this.state.name}</Comment.Author> */}
                                         <Comment.Text>{message}</Comment.Text>
