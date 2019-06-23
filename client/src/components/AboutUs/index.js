@@ -1,30 +1,30 @@
 import React from "react";
-import { Grid, Image } from "semantic-ui-react";
-import logo from "../../images/logo.png";
+import { Header, Grid, GridColumn } from "semantic-ui-react";
 import "./style.css";
+
 const DividerExampleVertical = () => (
   <div className="aboutUs">
-    <Grid>
-      <Grid.Column width={3}>
-        <p>
-          <Image src={logo} size="large" className="logo" circular />
-        </p>
-      </Grid.Column>
-      <Grid.Column width={13}>
-        <p>
-          The SoundBudz team was founded in 2019 in a small classroom in New
-          York City, NY. Our app is designed for all women and men, who really
-          love the live music and want to go to concerts. Its not always you and
-          your friend will have a same preference of the music and that yours
-          favorite band will be perfoming. So sometimes you might have to find
-          out someone else to go with. Thats why this web application will help
-          you find the like minded person and enjoy the concert. It will provide
-          the user the platform to have a discussion about the show or concert
-          you want to attend and know more about the band and the artist.
-        </p>
-      </Grid.Column>
-    </Grid>
+    <div className="container">
+      <Header as='h1'>
+        OUR APP IS FOR PEOPLE WHO REALLY LOVE LIVE MUSIC
+      </Header>
+
+      <p className="about-paragraph">
+        You won't always have the same music taste as friends so sometimes you'll need 
+        to find others to go to an event with. 
+      </p>
+      <p className="about-paragraph">
+        SoundBudz helps you connect with like minded people, talk about the artist you love and 
+        find out who is interested in going to their live show. 
+      </p>
+      <p className="about-paragraph">
+      SoundBudz was founded in 2019 in a small classroom at Columbia University in New
+      York City.
+      </p>
+
+    </div>
   </div>
 );
 
 export default DividerExampleVertical;
+
