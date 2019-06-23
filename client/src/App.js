@@ -17,6 +17,7 @@ import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import Chat from "./pages/chat/Chat";
 import io from "socket.io-client";
+import "./app.css"
 
 const socket = io('http://localhost:3001', {
   transports: ['websocket']
