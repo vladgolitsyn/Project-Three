@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Grid, Image, Header, Icon, Card } from "semantic-ui-react";
-import mike from "../../images/mike.png";
+import { Container, Grid, Image, Header} from "semantic-ui-react";
+import mike from "../../images/mike.jpg";
 import vlad from "../../images/Vlad.png";
 import somat from "../../images/somat4.jpg";
 import Shewah from "../../images/szewah.png";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Input, Button, Form, Menu, Dropdown } from "semantic-ui-react";
+import { Input, Button, Form, Menu, Dropdown, Icon } from "semantic-ui-react";
 
 // handle(event)
 // {
@@ -27,23 +27,25 @@ class SearchField extends Component {
   };
   render() {
     return (
-      <div>
         <Form onClick={this.handleFormSubmit}>
           <Form.Field>
-            <Input
-              value={this.state.search}
-              name="search"
-              onChange={this.handleInputChange}
-              placeholder="Search"
-            />
+            <div className="ui action input">
+              <input 
+                value={this.state.search}
+                name="search"
+                onChange={this.handleInputChange}
+                placeholder="Artist...." 
+              />
+              <Button icon className="btn">
+                <Icon name='search' className="icon"/>
+              </Button>
+            </div>          
           </Form.Field>
-          <Button type="submit" value="Submit">
-            Search
-          </Button>
         </Form>
-      </div>
+
     );
   }
 }
 
 export default SearchField;
+
