@@ -1,8 +1,24 @@
+.event-details-header {
+  position: relative;
+  display: block;
+  width: 900px;
+  margin: 50px auto;
+}
+
+.event-return-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.event-return-btn-icon {
+  padding-right: 5px;
+}
+
 .event-details-card {
   position: relative;
   height: 450px;
   width: 900px;
-  margin: 200px auto;
+  margin: 85px auto;
   background-color: #fff;
   -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
@@ -27,11 +43,10 @@
 .event-details-content {
   margin-left: 590px;
   margin-right: 20px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .artist-name {
-  padding-top: 15px;
   color: #4b4b4b;
 }
 
@@ -40,10 +55,10 @@
   border: 1px solid rgb(53, 53, 53);
 }
 
-p {
+.event-details-content p {
   text-align: justify;
   padding-top: 10px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 125%;
   color: #4b4b4b;
 }
@@ -53,7 +68,7 @@ p {
   bottom: 0;
 }
 
-h5 {
+.large-date {
   position: absolute;
   left: 30px;
   bottom: 10px;
@@ -61,7 +76,7 @@ h5 {
   color: #c3c3c3;
 }
 
-h6 {
+.large-month {
   position: absolute;
   left: 30px;
   bottom: 0px;
@@ -70,13 +85,23 @@ h6 {
 }
 
 /* Those futur buttons */
-ul {
-  margin-left: 250px;
+.selected-event-icons {
+  margin-left: 325px;
+  margin-bottom: 15px;
 }
 
-li {
+.selected-event-icons li {
   display: inline;
   list-style: none;
-  padding-right: 75px;
+  padding-right: 150px;
   color: #7b7b7b;
+}
+
+.event-icons:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.large-date {
+  padding-left: 15px;
 }

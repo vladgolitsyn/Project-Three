@@ -27,23 +27,22 @@ class SearchField extends Component {
   };
   render() {
     return (
-        <Form onClick={this.handleFormSubmit} className="homepage-search-form">
-          <Form.Field className="search-field">
-            <div>
-              <Input 
-                action="Search"
-                value={this.state.search}
-                name="search"
-                onChange={this.handleInputChange}
-                placeholder="Artist...." 
-                className="input search"
-              />
-              <Button icon className="btn">
-                <Icon name='search' className="icon"/>
-              </Button>
-            </div>          
+        <div>
+        <Form onClick={this.handleFormSubmit}>
+          <Form.Field>
+            <Input
+              value={this.state.search}
+              name="search"
+              onChange={this.handleInputChange}
+              placeholder="Search"
+              id="userInput"
+            />
           </Form.Field>
+          <Button type="submit" value="Submit">
+            Search
+          </Button>
         </Form>
+      </div>
 
     );
   }
