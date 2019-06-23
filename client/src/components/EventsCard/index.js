@@ -34,6 +34,13 @@ export default class EventsCard extends React.Component {
               </li>
 
               <li>
+                {" "}
+                {moment(this.props.events.dates.start.dateTime).format(
+                  "ddd, MMM Do YYYY"
+                )}
+              </li>
+
+              <li>
                 Event Start:{" "}
                 {moment(
                   this.props.events.dates.start.localTime,
