@@ -1,12 +1,8 @@
-p {
-  font-size: 18px;
+p.h1 {
+    font-size: 28px !important;
+    text-align: center;
 }
-.aboutUs {
-  background-color: beige;
-}
-.logo {
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
+
+p.about-paragraph {
+    font-size: 25px !important;
 }

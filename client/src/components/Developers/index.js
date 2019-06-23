@@ -17,17 +17,17 @@ const Developers = () => (
       <Grid.Row centered columns={3} textAlign="center">
         <Grid.Column>
           <Image src={mike} />
-          <Header as='h3'>Mike</Header>
+          <p className='h3'>Mike</p>
           <p className="title">Web Developer</p>       
         </Grid.Column>
         <Grid.Column>
           <Image src={vlad} />
-          <Header as='h3'>Vlad</Header>
+          <p className='h3'>Vlad</p>
           <p className="title">Web Developer</p>
         </Grid.Column>
         <Grid.Column>
           <Image src={Shewah}/>
-          <Header as='h3'>Somat</Header>
+          <p className='h3'>Szewah</p>
           <p className="title">Web Developer</p>
         </Grid.Column>
       </Grid.Row>
@@ -35,12 +35,12 @@ const Developers = () => (
       <Grid.Row centered columns={3} textAlign="center">
         <Grid.Column>
           <Image src={somat}/>
-          <Header as='h3'>Somat</Header>
+          <p className='h3'>Somat</p>
           <p className="title">Web Developer</p>
         </Grid.Column>
         <Grid.Column>
           <Image src={aman}/>
-          <Header as='h3'>Aman</Header>
+          <p className='h3'>Aman</p>
           <p className="title">Web Developer</p>
         </Grid.Column>
       </Grid.Row>

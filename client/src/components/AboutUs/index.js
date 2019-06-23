@@ -5,9 +5,9 @@ import "./style.css";
 const DividerExampleVertical = () => (
   <div className="aboutUs">
     <div className="container">
-      <Header as='h1'>
+      <p className='h1'>
         OUR APP IS FOR PEOPLE WHO REALLY LOVE LIVE MUSIC
-      </Header>
+      </p>
 
       <p className="about-paragraph">
         You won't always have the same music taste as friends so sometimes you'll need 

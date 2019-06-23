@@ -7,30 +7,20 @@ div.column {
     margin-top: 80px !important;
 }
 
-p {
-    font-size: 13px !important;
-    text-align: center !important;
-    font-weight: lighter;
-}
-
-.header {
+.h3 {
+    font-size: 25px !important;
     text-align: center;
+    margin-top: 15px !important;
     margin-bottom: 5px !important;
-    font-weight: 400 !important;
 }
 
 .description {
     text-align: center;
 }
 
-.profile-image {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 p.title {
     font-size: 15px !important;
     padding: 2px !important;
     color: grey;
+    text-align: center;
 }
