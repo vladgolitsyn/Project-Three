@@ -40,8 +40,7 @@
 
 .list--event-name {
   height: 100px;
-  padding-left: 20px;
-  line-height: 100px;
+  padding: 20px 10px 0 20px;
   text-decoration: underline;
 }
 

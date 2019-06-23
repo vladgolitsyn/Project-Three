@@ -6,7 +6,7 @@ function EventListHeader() {
     <div>
       <div className="event-header">
         <h1>Events</h1>
-        <a className="event-return-btn">
+        <a href="/" className="event-return-btn">
           <i className="fas fa-undo-alt event-return-btn-icon" />
           Go Back
         </a>
