@@ -8,7 +8,7 @@
     text-align: center !important;
 }
 
-.ui.form {
+.ui.form.login-form {
     max-width: 34%;
     margin: 50px auto;
 }

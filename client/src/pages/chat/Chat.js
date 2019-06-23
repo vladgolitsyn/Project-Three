@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Header, Comment, Form} from 'semantic-ui-react';
+import {Container, Comment, Form} from 'semantic-ui-react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./style.css";
@@ -43,10 +43,11 @@ class Chat extends Component{
     render() {
         return (
             <div>
-                <Header as='h3' className="chat-header-h3">
-                    Event Name Chat Group
-                </Header>
+                <div className="chat-header-h1">
+                    <p className="chat-header-p">Event Name Chat Group</p>
+                </div>
 
+                <Container>
                 <div className="event-chat-area">
                     {this.state.messages.map((message, index) => {
                         return ( 
@@ -61,19 +62,20 @@ class Chat extends Component{
                         )
                     })}
                 </div>
+                </Container>
 
+                <Container>
                 <Form onSubmit={this.sendMessage} className="event-chat-form">
-                    <Form.Group>
-                        <Form.Input
-                            placeholder='Message'
-                            name='message'
-                            value={this.state.message}
-                            onChange={this.handleChange}
-                            className="event-chat-input"
-                            />
-                        <Form.Button content='Send' className="event-chat-btn"  />
-                    </Form.Group>
+                    <Form.Input
+                        placeholder='Message'
+                        name='message'
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                        className="event-chat-input"
+                        />
+                    <Form.Button content='Send' className="event-chat-btn"  />
                 </Form>
+                </Container>
 
             </div>
         )

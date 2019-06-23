@@ -57,7 +57,7 @@ class Login extends Component {
     return (
       <Container fluid>
       <h1 className="login-h1">Let's get started</h1>
-        <Form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit} className="login-form">
           <Form.Field>
             {!!errors.emailnotfound && (
               <Message
