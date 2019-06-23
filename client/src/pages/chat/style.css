@@ -1,0 +1,31 @@
+.chat-header-h3 {
+    margin-top: 0 !important;
+    background: purple !important;
+    height: 70px;
+    color: white !important;
+    padding: 25px !important;
+    text-align: left !important;
+}
+
+.event-chat-area {
+    border: 1px grey dotted !important;
+    border-radius: 5px;
+    height: 500px !important;
+    position: relative !important;
+    padding: 10px !important;
+    margin: 15px !important;
+}
+
+.event-chat-form {
+    margin-top: auto !important;
+    max-width: 98% !important;
+    padding: 5px;
+}
+
+.event-chat-input {
+    width: 90% !important;
+}
+
+.chat-event-btn {
+    background: purple !important;
+}

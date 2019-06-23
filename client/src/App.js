@@ -6,6 +6,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/Navbar";
+// import About from "./pages/About/About";
 import Landing from "./pages/layout/Homepage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
@@ -15,6 +16,11 @@ import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import Chat from "./pages/chat/Chat";
+import io from "socket.io-client";
+
+const socket = io('http://localhost:3001', {
+  transports: ['websocket']
+})
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -44,14 +50,15 @@ class App extends Component {
             <Navbar />
             {/* <Route exact path="/" component={Landing} /> */}
             <Route exact path="/" component={Home} />
+            {/* <Route exact path="/about" component={About}/> */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signin" component={Login} />
             <Route exact path="/event" component={Events} />
             <Route exact path="/EventDetails" component={EventDetails} />
-            <Route exact path="/chat" component={Chat} />
+            <Route exact path="/chat" render={() => <Chat socket={socket}/>} />
             <Switch>
-              <PrivateRoute exact path="/profile" component={Dashboard} />
+              <Route exact path="/profile" render={()=> <Dashboard socket={socket}/>}/>
             </Switch>
           </div>
         </Router>
@@ -60,3 +67,4 @@ class App extends Component {
   }
 }
 export default App;
+
