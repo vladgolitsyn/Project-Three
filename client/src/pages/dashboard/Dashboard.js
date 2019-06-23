@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import style from "./style.css";
+import "./style.css";
 import { Redirect } from 'react-router-dom'
 import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
 

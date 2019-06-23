@@ -1,6 +1,7 @@
-.login-h2 {
+.login-h1 {
     margin-top: 120px !important;
     text-align: center;
+    font-weight: lighter;
 }
 
 .login-h5 a {
