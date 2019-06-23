@@ -47,8 +47,8 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signin" component={Login} />
-            <Route exact path="/event" component={Events} />
-            <Route exact path="/EventDetails" component={EventDetails} />
+            <Route exact path="/events" component={Events} />
+            <Route exact path="/eventdetails" component={EventDetails} />
             <Route exact path="/chat" component={Chat} />
             <Switch>
               <PrivateRoute exact path="/profile" component={Dashboard} />

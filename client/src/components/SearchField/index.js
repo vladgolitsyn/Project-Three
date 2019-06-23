@@ -35,6 +35,7 @@ class SearchField extends Component {
               name="search"
               onChange={this.handleInputChange}
               placeholder="Search"
+              id="userInput"
             />
           </Form.Field>
           <Button type="submit" value="Submit">
