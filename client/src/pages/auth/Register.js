@@ -63,7 +63,12 @@ class Register extends Component {
 
     return (
       <Container fluid>
-        <Form onSubmit={this.onSubmit}>
+      <h1 className="login-h1">Let's get started</h1>
+        <Form 
+          onSubmit={this.onSubmit}
+          className="registration-form"
+          style={{width: '30%', marginTop: '50px'}}
+          >
           <Form.Field>
             {!!errors.name && (
               <Message
@@ -73,7 +78,7 @@ class Register extends Component {
                 content=""
               />
             )}
-            <label>Name</label>
+            <label></label>
             <input
               type="text"
               className="form-control"
@@ -82,6 +87,7 @@ class Register extends Component {
               value={this.state.name}
               error={errors.name}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
           <Form.Field>
@@ -93,7 +99,7 @@ class Register extends Component {
                 content=""
               />
             )}
-            <label>email</label>
+            <label></label>
             <input
               type="Email"
               id="email"
@@ -101,6 +107,7 @@ class Register extends Component {
               value={this.state.email}
               error={errors.email}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
           <Form.Field>
@@ -112,7 +119,7 @@ class Register extends Component {
                 content=""
               />
             )}
-            <label>Password</label>
+            <label></label>
             <input
               type="password"
               id="password"
@@ -120,6 +127,7 @@ class Register extends Component {
               value={this.state.password}
               error={errors.password}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
           <Form.Field>
@@ -131,7 +139,7 @@ class Register extends Component {
                 content=""
               />
             )}
-            <label>Confirm Password</label>
+            <label></label>
             <input
               type="password"
               id="password2"
@@ -139,15 +147,23 @@ class Register extends Component {
               value={this.state.password2}
               error={errors.password2}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
           <Form.Field>
             <Checkbox label="I agree to the Terms and Conditions" />
           </Form.Field>
-          <Button negative type="submit">
+          <Button negative 
+            className="btn-register"
+            type="submit"
+            style={{height: '40px', marginBottom: '25px'}}
+          >
             Register
-          </Button>
-          <Header as="h5">
+          </Button >
+          <Header 
+            as="h5"
+            style={{textAlign: 'center'}}
+          >
             <a href="/login">Login here</a>
           </Header>
         </Form>

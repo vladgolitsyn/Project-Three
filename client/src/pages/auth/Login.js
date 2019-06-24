@@ -7,6 +7,7 @@ import { loginUser } from "../../actions/authActions";
 import "./style.css";
 import { Button, Form, Container, Message, Header } from "semantic-ui-react";
 
+
 class Login extends Component {
   constructor() {
     super();
@@ -56,8 +57,11 @@ class Login extends Component {
 
     return (
       <Container fluid>
-      <h1 className="login-h1">Let's get started</h1>
-        <Form onSubmit={this.onSubmit} className="login-form">
+      <h1 className="login-h1">Welcome back!</h1>
+        <Form 
+          onSubmit={this.onSubmit} 
+          className="login-form"
+          style={{width: '30%', marginTop: '50px'}}>
           <Form.Field>
             {!!errors.emailnotfound && (
               <Message
@@ -75,6 +79,7 @@ class Login extends Component {
               value={this.state.email}
               error={errors.emailnotfound}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
           <Form.Field>
@@ -94,12 +99,18 @@ class Login extends Component {
               value={this.state.password}
               error={errors.passwordincorrect}
               onChange={this.onChange}
+              style={{height: '40px'}}
             />
           </Form.Field>
-          <Button className="btn-login" type="submit">
+          <Button className="btn-login" type="submit"
+            style={{height: '40px', marginBottom: '25px'}}
+          >
             Log in
           </Button>
-          <Header className="login-h5" as="h5">
+          <Header 
+            as="h5"
+            style={{textAlign: 'center'}}
+          >
             <a href="/register">Register here</a>
           </Header>
         </Form>

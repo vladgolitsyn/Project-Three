@@ -20,8 +20,10 @@ import io from "socket.io-client";
 import "./app.css"
 
 const socket = io('http://localhost:3001', {
-  transports: ['websocket']
+  transports: ['websocket'], 
 })
+
+// const socket = io('http://localhost:3001', { secure: true, reconnect: true })
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
