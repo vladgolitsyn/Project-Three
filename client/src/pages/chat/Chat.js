@@ -15,14 +15,14 @@ class Chat extends Component{
         console.log(this.props);
         const { socket } = this.props;
         
-        // socket.on('connect', function() {
-        //     console.log('connected')
-        // });
-        // socket.on('new-message', message => {
-        //     const { messages } = this.state;
-        //     const udpatedMessages = [...messages, message];
-        //     this.setState({ messages: udpatedMessages });
-        // });
+        socket.on('connect', function() {
+            console.log('connected')
+        });
+        socket.on('new-message', message => {
+            const { messages } = this.state;
+            const udpatedMessages = [...messages, message];
+            this.setState({ messages: udpatedMessages });
+        });
     }
 
 
