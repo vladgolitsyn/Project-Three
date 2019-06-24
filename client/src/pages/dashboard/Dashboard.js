@@ -1,43 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./style.css";
-import { Redirect } from 'react-router-dom'
+import style from "./style.css";
 import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
 
 class Dashboard extends Component {
-  socket = null;
-
-  state = {
-    redirect: false
-  }
-
-  componentDidMount() {
-    //connecting the socket to the server once the component has mounted
-    const {socket} = this.props;
-    socket.on('connect', () => {
-        console.log('connected')
-    });
-  }
-
-  
   onClick = () => {
-    console.log(this.props)
-    const name = this.props.auth.user.name
-    this.setRedirect();
-    //on clicking the group icon, we join a "room"
-    const {socket} = this.props;
-    socket.emit("join", name)
+    this.props.history.push("/chat");
   };
 
-  setRedirect = () => {
-    this.setState({redirect: true})
-  }
-
   render() {
-    if(this.state.redirect) {
-      return <Redirect to={'/chat'} />
-    }
     const { user } = this.props.auth;
     const name = user.name
       .toLowerCase()
