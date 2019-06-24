@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { Responsive, Dropdown, Icon, Menu, Image} from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout";
 import { connect } from "react-redux";
-import logo from "../../logo/blacklogo.png";
-import './style.css';
-
-
 class Navbar extends Component {
   state = { activeItem: "home" };
 
@@ -16,64 +12,45 @@ class Navbar extends Component {
     const { activeItem } = this.state;
     const { isAuthenticated, user } = this.props.auth;
 
-
     return (
-      <div className="menu-div">
-        <Menu secondary className="menu">
-
-          <Menu.Item 
-            className="logo" 
-            onClick={this.handleItemClick} 
-            as={Link}   
-            to="/"
-          >
-            <Image size="small" src={logo}/>
-          </Menu.Item>
-
+      <div>
+        <Menu pointing secondary>
           <Menu.Item
-            className="menu"
-            position="right"
+            name="home"
+            as={Link}
+            to="/"
+            active={activeItem === "home"}
             onClick={this.handleItemClick}
+          />
+          <Menu.Item
             name="event"
             as={Link}
             to="/event"
+            active={activeItem === "event"}
+            onClick={this.handleItemClick}
           />
 
           {isAuthenticated ? (
-
             <Menu.Menu>
-
               <Menu.Item
-                className="menu"
-                onClick={this.handleItemClick}
-                name="about"
-                as={Link}
-                to="/about"
-              />
-
-              <Menu.Item
-                className="menu-link" 
-                onClick={this.handleItemClick}
                 name="profile"
                 as={Link}
                 to="/profile"
-              />
-
-              <Menu.Item
-                className="menu-link" 
+                active={activeItem === "profile"}
                 onClick={this.handleItemClick}
+              />
+              <Menu.Item
                 name="chat"
                 as={Link}
                 to="/chat"
+                active={activeItem === "chat"}
+                onClick={this.handleItemClick}
               />
-
-              <Logout className="menu-link" />
+              <Logout />
             </Menu.Menu>
-
           ) : (
             <Menu.Menu>
               <Menu.Item
-                className="menu-link" 
                 name="SignIn"
                 as={Link}
                 to="/login"
@@ -83,7 +60,7 @@ class Navbar extends Component {
             </Menu.Menu>
           )}
         </Menu>
-      </div> 
+      </div>
     );
   }
 }
@@ -96,5 +73,3 @@ export default connect(
   mapStateToProps,
   null
 )(Navbar);
-
-

@@ -1,8 +1,12 @@
-p.h1 {
-    font-size: 28px !important;
-    text-align: center;
+p {
+  font-size: 18px;
 }
-
-p.about-paragraph {
-    font-size: 25px !important;
+.aboutUs {
+  background-color: beige;
+}
+.logo {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }

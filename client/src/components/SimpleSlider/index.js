@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import pic5b from "../../images/005b.png";
-import pic3b from "../../images/003b.png";
-import pic42 from "../../images/0042.png"
-
+import pic from "../../images/005.jpg";
+import pic1 from "../../images/001.jpg";
+import pic2 from "../../images/003.jpg";
 
 import { Image } from "semantic-ui-react";
 
@@ -22,17 +21,17 @@ export class SimpleSlider extends Component {
     };
     return (
       <div>
-        <Slider {...settings} className='slider'>
+        <Slider {...settings}>
           {/* <Image src={pic} /> */}
 
           <div>
-            <Image src={pic42} />
+            <Image src={pic1} />
           </div>
           <div>
-            <Image src={pic3b} />
+            <Image src={pic} />
           </div>
           <div>
-            <Image src={pic5b} />
+            <Image src={pic2} />
           </div>
 
           {/* <div>
@@ -44,4 +43,3 @@ export class SimpleSlider extends Component {
   }
 }
 export default SimpleSlider;
-

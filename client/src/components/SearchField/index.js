@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Input, Button, Form, Menu, Dropdown, Icon } from "semantic-ui-react";
+import { Input, Button, Form, Menu, Dropdown } from "semantic-ui-react";
 
 // handle(event)
 // {
@@ -27,7 +27,7 @@ class SearchField extends Component {
   };
   render() {
     return (
-        <div>
+      <div>
         <Form onClick={this.handleFormSubmit}>
           <Form.Field>
             <Input
@@ -43,10 +43,8 @@ class SearchField extends Component {
           </Button>
         </Form>
       </div>
-
     );
   }
 }
 
 export default SearchField;
-
