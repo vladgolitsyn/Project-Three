@@ -68,18 +68,28 @@
   bottom: 0;
 }
 
-.large-date {
+.large-date-container {
   position: absolute;
+  width: 120px;
   left: 30px;
-  bottom: 10px;
+  bottom: 20px;
+  text-align: center;
+}
+
+.large-date {
   font-size: 6rem;
   color: #c3c3c3;
 }
 
-.large-month {
+.large-month-container {
   position: absolute;
+  width: 120px;
   left: 30px;
   bottom: 0px;
+  text-align: center;
+}
+
+.large-month {
   font-size: 2rem;
   color: #c3c3c3;
 }
@@ -100,8 +110,4 @@
 .event-icons:hover {
   transform: scale(1.25);
   cursor: pointer;
-}
-
-.large-date {
-  padding-left: 15px;
 }
