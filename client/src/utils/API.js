@@ -15,8 +15,8 @@ export default {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     return axios.get(
       proxyurl +
-        "https://app.ticketmaster.com/discovery/v2/events/?keyword=shania+twain&apikey=" +
-        process.env.REACT_APP_TICKETMASTER_API_KEY
+        `https://app.ticketmaster.com/discovery/v2/events/?keyword=ariana+grande&apikey=
+        ${process.env.REACT_APP_TICKETMASTER_API_KEY}`
     );
   }
 };
