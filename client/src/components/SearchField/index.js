@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./style.css";
-import { Input, Button, Form, Icon, Container } from "semantic-ui-react";
+import { Input, Form, Container } from "semantic-ui-react";
+import './style.css'
 
 // handle(event)
 // {

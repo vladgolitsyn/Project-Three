@@ -2,25 +2,10 @@ div.column {
     box-shadow: none !important;
 }
 
-.developer {
-    margin-bottom: 80px !important;
-    margin-top: 80px !important;
-}
-
-.h3 {
-    font-size: 25px !important;
-    text-align: center;
-    margin-top: 15px !important;
-    margin-bottom: 5px !important;
-}
-
-.description {
-    text-align: center;
-}
-
 p.title {
     font-size: 15px !important;
     padding: 2px !important;
     color: grey;
     text-align: center;
+    margin-bottom: 10px;
 }

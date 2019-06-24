@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./style.css";
 import { Redirect } from 'react-router-dom'
-import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
+import { Button, Card, Container, Header, Icon, Image } from "semantic-ui-react";
+import Footer from "../../components/Footer";
+import Profile from "../../images/profile.png"
 
 class Dashboard extends Component {
   socket = null;
@@ -16,7 +18,7 @@ class Dashboard extends Component {
     //connecting the socket to the server once the component has mounted
     const {socket} = this.props;
     socket.on('connect', () => {
-        console.log('connected')
+        console.log('Dashbord socket is connected')
     });
   }
 
@@ -46,17 +48,41 @@ class Dashboard extends Component {
       .join(" ");
     return (
       <div>
-        <Container fluid>
-          <Header as="h2" icon textAlign="center">
-            <Icon name="users" circular />
-            <Header.Content> Welcome, {name}</Header.Content>
-
-            <Header.Content className="eventName"> Event Name</Header.Content>
-            <Button className="eventGroup" onClick={this.onClick}>
-              Go to Event Group
-            </Button>
-          </Header>
+        <Container style={{marginBottom: '50px', marginTop: '50px'}}>
+        <Image src={Profile} size='small' style={{margin: 'auto'}}/>
+          <Card style={{
+            width: '50%', 
+            margin: 'auto', 
+            borderRadius: '5px', 
+            boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+            }}
+          >
+            <Card.Content style={{height: '100%'}}>
+              <Card.Header style={{
+                textAlign: 'center', 
+                marginTop: '10px', 
+                fontSize: '20px', 
+                fontWeight: '400'
+                }}
+              >
+                Welcome {name}.
+                <br/> 
+                Here are your upcoming events.
+              </Card.Header>
+              <br/>
+              <br/>
+              <Card.Content style={{textAlign:'center'}}>EVENT LIST</Card.Content>
+              <br/>
+              <br/>
+              <Card.Description>
+                <Button className="eventGroup" onClick={this.onClick}>
+                Start chatting  
+                </Button>
+              </Card.Description>
+            </Card.Content>
+          </Card>
         </Container>
+        <Footer style={{bottom: '0'}}/>
       </div>
     );
   }

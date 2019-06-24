@@ -10,11 +10,13 @@ function Footer() {
         <span>SoundBudz 2019</span>
       </div>
       <br/>
+      <a href="https://github.com/vladgolitsyn/Project-Three">     
       <Icon
         name="github"
-        link="https://github.com/vladgolitsyn/Project-Three"
         size="large"
+        style={{color: 'white'}}
       />
+      </a> 
 
     </footer>
   );

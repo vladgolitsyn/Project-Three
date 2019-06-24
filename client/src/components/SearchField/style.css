@@ -1,16 +1,4 @@
-.input.search {
-    margin-top: 30px !important;
-    width: 50% !important;
-}
-
-Button.btn {
-    background: #8B008B !important;
-    border: none !important;
-    padding: 10px !important;
-}
-
-.icon {
+button.ui.button {
+    background: purple;
     color: white;
-    width: 80px;
-    justify-content: center;
 }
