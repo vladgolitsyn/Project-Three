@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 // import classnames from "classnames";
+import "./style.css";
 import { Button, Form, Container, Message, Header } from "semantic-ui-react";
+
 class Login extends Component {
   constructor() {
     super();
@@ -54,7 +56,8 @@ class Login extends Component {
 
     return (
       <Container fluid>
-        <Form onSubmit={this.onSubmit}>
+      <h1 className="login-h1">Let's get started</h1>
+        <Form onSubmit={this.onSubmit} className="login-form">
           <Form.Field>
             {!!errors.emailnotfound && (
               <Message
@@ -64,11 +67,11 @@ class Login extends Component {
                 content=""
               />
             )}
-            <label>email</label>
+            <label></label>
             <input
               type="Email"
               id="email"
-              placeholder="Enter Email"
+              placeholder="Email"
               value={this.state.email}
               error={errors.emailnotfound}
               onChange={this.onChange}
@@ -83,20 +86,20 @@ class Login extends Component {
                 content=""
               />
             )}
-            <label>Password</label>
+            <label></label>
             <input
               type="password"
               id="password"
-              placeholder="Enter Password"
+              placeholder="Password"
               value={this.state.password}
               error={errors.passwordincorrect}
               onChange={this.onChange}
             />
           </Form.Field>
-          <Button color="olive" type="submit">
+          <Button className="btn-login" type="submit">
             Log in
           </Button>
-          <Header as="h5">
+          <Header className="login-h5" as="h5">
             <a href="/register">Register here</a>
           </Header>
         </Form>
@@ -120,3 +123,4 @@ export default connect(
   mapStateToProps,
   { loginUser }
 )(Login);
+

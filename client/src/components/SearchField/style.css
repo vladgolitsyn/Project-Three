@@ -1,12 +1,16 @@
-#search {
-  /* width: 100%; */
-  /* height: auto; */
+.input.search {
+    margin-top: 30px !important;
+    width: 50% !important;
+}
 
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  text-align: center;
-  padding: 5px;
+Button.btn {
+    background: #8B008B !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+.icon {
+    color: white;
+    width: 80px;
+    justify-content: center;
 }
