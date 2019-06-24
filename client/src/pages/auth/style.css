@@ -1,8 +1,4 @@
-.login-h1 {
-    margin-top: 120px !important;
-    text-align: center;
-    font-weight: lighter;
-}
+/* form margin alignment */
 
 .ui.form.login-form,
 .ui.form.registration-form {

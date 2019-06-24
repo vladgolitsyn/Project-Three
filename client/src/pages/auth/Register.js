@@ -63,7 +63,15 @@ class Register extends Component {
 
     return (
       <Container fluid>
-      <h1 className="login-h1">Let's get started</h1>
+        <h1 
+          style={{
+            marginTop: '80px',
+            textAlign: 'center',
+            fontWeight: 'lighter'
+          }}
+        >
+        Let's get started
+        </h1>
         <Form 
           onSubmit={this.onSubmit}
           className="registration-form"
@@ -156,7 +164,7 @@ class Register extends Component {
           <Button negative 
             className="btn-register"
             type="submit"
-            style={{height: '40px', marginBottom: '25px'}}
+            style={{height: '40px', marginBottom: '10px'}}
           >
             Register
           </Button >

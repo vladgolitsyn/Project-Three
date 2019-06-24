@@ -57,7 +57,15 @@ class Login extends Component {
 
     return (
       <Container fluid>
-      <h1 className="login-h1">Welcome back!</h1>
+        <h1 
+          style={{
+            marginTop: '120px',
+            textAlign: 'center',
+            fontWeight: 'lighter'
+          }}
+        >
+          Welcome back!
+        </h1>
         <Form 
           onSubmit={this.onSubmit} 
           className="login-form"
@@ -103,7 +111,7 @@ class Login extends Component {
             />
           </Form.Field>
           <Button className="btn-login" type="submit"
-            style={{height: '40px', marginBottom: '25px'}}
+            style={{height: '40px', marginBottom: '10px'}}
           >
             Log in
           </Button>
