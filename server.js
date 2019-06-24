@@ -68,7 +68,7 @@ app.use("/api/users", chat);
 db.sequelize.sync().then(function() {
   console.log("started!!!");
 
-  http.listen(PORT, function() {
+http.listen(PORT, function() {
     console.log("App listening on http://localhost:" + PORT);
   });
 });

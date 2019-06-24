@@ -13,11 +13,9 @@ export class Logout extends Component {
   };
   render() {
     return (
-      <Menu.Menu>
-        <Menu.Item onClick={this.onLogoutClick} href="/">
-          Logout
-        </Menu.Item>
-      </Menu.Menu>
+      <Menu.Item onClick={this.onLogoutClick} href="/">
+        Logout
+      </Menu.Item>
     );
   }
 }

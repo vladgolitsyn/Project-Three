@@ -13,4 +13,5 @@ h2.ui.header {
     margin-top: 20px !important;
     font-size: 26px !important;
     font-weight: lighter !important;
+    text-align: center;
 }

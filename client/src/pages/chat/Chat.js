@@ -12,12 +12,12 @@ class Chat extends Component{
         };
     
     componentDidMount() {
-        console.log("testing the socket conection" + this.props);
+        console.log(this.props);
         const { socket } = this.props;
         
-        socket.on('connect', () => {
-            console.log('connected')
-        });
+        // socket.on('connect', function() {
+        //     console.log('connected')
+        // });
         // socket.on('new-message', message => {
         //     const { messages } = this.state;
         //     const udpatedMessages = [...messages, message];
@@ -64,7 +64,7 @@ class Chat extends Component{
                 </div>
                 </Container>
 
-                <Container>
+                <Container style={{marginTop:'5px'}} >
                 <Form onSubmit={this.sendMessage} className="event-chat-form">
                     <Form.Input
                         placeholder='Message'
@@ -72,8 +72,13 @@ class Chat extends Component{
                         value={this.state.message}
                         onChange={this.handleChange}
                         className="event-chat-input"
+                        style={{height: '50px'}} 
                         />
-                    <Form.Button content='Send' className="event-chat-btn"  />
+                    <Form.Button 
+                        content='+' 
+                        className="event-chat-btn" 
+                        style={{background:'purple', color:'white'}} 
+                    />
                 </Form>
                 </Container>
 
