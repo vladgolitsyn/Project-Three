@@ -5,7 +5,7 @@ import "./style.css";
 const DividerExampleVertical = () => (
   
   <div className="container" style={{width: '60%'}}>
-    <Header as='h1'>
+    <Header as='h2' style={{textAlign:'center'}}>
       SOUNDBUDZ IS FOR PEOPLE WHO REALLY LOVE LIVE MUSIC
     </Header>
 
@@ -19,7 +19,7 @@ const DividerExampleVertical = () => (
     </p>
     <br/>
     <br/>
-    <Header as='h1' style={{textAlign:'center'}}>MEET THE TEAM</Header>
+    <Header as='h2' style={{textAlign:'center'}}>MEET THE TEAM</Header>
     <p className="about-paragraph">
     SoundBudz was founded in 2019 by a group of music lovers, in a small classroom at Columbia University, in New
     York City.

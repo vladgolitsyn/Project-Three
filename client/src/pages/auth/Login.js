@@ -54,7 +54,6 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
-
     return (
       <Container fluid>
         <h1 
@@ -69,12 +68,19 @@ class Login extends Component {
         <Form 
           onSubmit={this.onSubmit} 
           className="login-form"
-          style={{width: '30%', marginTop: '50px'}}>
+          style={{width: '30%', marginTop: '50px'}}
+        >
           <Form.Field>
+            {!!errors.email && (
+              <Message
+                color="red"
+                header={errors.email}
+                content=""
+              />
+            )}
             {!!errors.emailnotfound && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.emailnotfound}
                 content=""
               />
@@ -91,11 +97,10 @@ class Login extends Component {
             />
           </Form.Field>
           <Form.Field>
-            {!!errors.passwordincorrect && (
+            {!!errors.password && (
               <Message
                 color="red"
-                icon="delete"
-                header={errors.passwordincorrect}
+                header={errors.password}
                 content=""
               />
             )}

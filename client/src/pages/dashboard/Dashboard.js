@@ -58,7 +58,7 @@ class Dashboard extends Component {
             boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
             }}
           >
-            <Card.Content style={{height: '100%'}}>
+            <Card.Content style={{height: '500px'}}>
               <Card.Header style={{
                 textAlign: 'center', 
                 marginTop: '10px', 
@@ -75,15 +75,15 @@ class Dashboard extends Component {
               <Card.Content style={{textAlign:'center'}}>EVENT LIST</Card.Content>
               <br/>
               <br/>
-              <Card.Description style={{width: '40%', margin: 'auto'}}>
-                <Button className="eventGroup" onClick={this.onClick}>
+              <Card.Description style={{display: 'flex', justifyContent:'center'}}>
+                <Button onClick={this.onClick}>
                 Start chatting  
                 </Button>
               </Card.Description>
             </Card.Content>
           </Card>
         </Container>
-        <Footer style={{bottom: '0'}}/>
+        <Footer style={{bottom: '-120px'}}/>
       </div>
     );
   }

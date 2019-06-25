@@ -81,7 +81,6 @@ class Register extends Component {
             {!!errors.name && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.name}
                 content=""
               />
@@ -102,7 +101,6 @@ class Register extends Component {
             {!!errors.email && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.email}
                 content=""
               />
@@ -122,7 +120,6 @@ class Register extends Component {
             {!!errors.password && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.password}
                 content=""
               />
@@ -142,7 +139,6 @@ class Register extends Component {
             {!!errors.password2 && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.password2}
                 content=""
               />
