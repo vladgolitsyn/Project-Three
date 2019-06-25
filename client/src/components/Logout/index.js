@@ -13,7 +13,7 @@ export class Logout extends Component {
   };
   render() {
     return (
-      <Menu.Item onClick={this.onLogoutClick} href="/login">
+      <Menu.Item onClick={this.onLogoutClick} href="/">
         Logout
       </Menu.Item>
     );

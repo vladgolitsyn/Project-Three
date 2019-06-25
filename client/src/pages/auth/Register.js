@@ -160,13 +160,13 @@ class Register extends Component {
           <Button negative 
             className="btn-register"
             type="submit"
-            style={{height: '40px', marginBottom: '10px'}}
+            style={{height: '40px', marginBottom: '8px'}}
           >
             Register
           </Button >
           <Header 
             as="h5"
-            style={{textAlign: 'center'}}
+            style={{textAlign: 'center', width: '105%'}}
           >
             <a href="/login">Login here</a>
           </Header>

@@ -21,19 +21,11 @@ div.ui.red.message {
     width: 105%;
 }
 
-.ui.red.message.header {
-    color: white;
-}
-
-.ui.red.message {
-    color: white;
-    background: pink;
-}
-
 .btn-login,
 .btn-register {
     background: #8B008B !important;
     width: 105%;
     color: white !important;
     font-family: Arial, Helvetica, sans-serif !important;
+    text-align: center;
 }

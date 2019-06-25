@@ -116,7 +116,7 @@ class Login extends Component {
             />
           </Form.Field>
           <Button className="btn-login" type="submit"
-            style={{height: '40px', marginBottom: '10px'}}
+            style={{height: '40px', marginBottom: '8px'}}
           >
             Log in
           </Button>
