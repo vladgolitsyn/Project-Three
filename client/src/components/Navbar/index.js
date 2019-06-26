@@ -31,9 +31,9 @@ class Navbar extends Component {
             className="menu"
             position="right"
             onClick={this.handleItemClick}
-            name="event"
+            name="events"
             as={Link}
-            to="/event"
+            to="/events"
           />
 
           {isAuthenticated ? (
