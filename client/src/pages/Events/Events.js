@@ -1,7 +1,9 @@
 import React from "react";
 import API from "../../utils/API";
 import { Container, Header, Button } from "semantic-ui-react";
+import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 import style from "./style.css";
+import { connect } from "react-redux";
 
 class Events extends React.Component {
   state = {
@@ -22,21 +24,29 @@ class Events extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // For testing purpose
-  onClick = () => {
-    this.props.history.push("/login");
+  onClick = event => {
+    console.log("[DEBUG] setting group chat trying to join");
+    if (this.props.auth.isAuthenticated === true) {
+      this.props.createEventGroup({
+        eventName: this.state.events[1].name,
+        eventDate: this.state.events[1].dates.start.dateTime,
+        userId: this.props.auth.user.id
+      });
+    } else {
+      setGroupChat({
+        eventName: this.state.events[1].name,
+        eventDate: this.state.events[1].dates.start.dateTime,
+        userId: this.props.auth.user.id
+      });
+      this.props.history.push("/login");
+    }
   };
 
   render() {
     return (
       <Container>
+        <Button onClick={this.onClick}>Choose A Event</Button>
         <div>
-          <Header>
-            This button is just for testing
-            <Button className="eventGroup" onClick={this.onClick}>
-              User will click her to create a group
-            </Button>
-          </Header>
           <h1>Events</h1>
           {this.state.events.length === 0 ? (
             <p>Loading Events...</p>
@@ -61,4 +71,11 @@ class Events extends React.Component {
   }
 }
 
-export default Events;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { createEventGroup, setGroupChat }
+)(Events);
