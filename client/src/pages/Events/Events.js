@@ -27,9 +27,10 @@ class Events extends React.Component {
 
     return axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
-          params.artistname
-        }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
+        "https://cors-anywhere.herokuapp.com/" +
+          `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
+            params.artistname
+          }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
       )
       .then(res => this.setState({ events: res.data._embedded.events }))
       .catch(err => console.log(err));
