@@ -4,7 +4,7 @@ import moment from "moment";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 import { connect } from "react-redux";
 
-import { Route, Redirect } from "react-router";
+import { Route, Redirect, withRouter } from "react-router";
 class EventDetailsCard extends React.Component {
   onClick = event => {
     console.log("[DEBUG] setting group chat trying to join");
@@ -24,7 +24,7 @@ class EventDetailsCard extends React.Component {
         ),
         userId: this.props.auth.user.id
       });
-      // this.props.history.push("/login");
+      this.props.history.push("/login");
     }
   };
   render() {
