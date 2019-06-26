@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Input, Form, Container } from "semantic-ui-react";
 import "./style.css";
-import { Input, Button, Form, Menu, Dropdown } from "semantic-ui-react";
 
 // handle(event)
 // {
@@ -28,20 +28,21 @@ class SearchField extends Component {
   render() {
     return (
       <div>
-        <Form onClick={this.handleFormSubmit}>
-          <Form.Field>
-            <Input
-              value={this.state.search}
-              name="search"
-              onChange={this.handleInputChange}
-              placeholder="Search"
-              id="userInput"
-            />
-          </Form.Field>
-          <Button type="submit" value="Submit">
-            Search
-          </Button>
-        </Form>
+        <Container style={{ width: "60%", marginTop: "30px" }}>
+          <Form onClick={this.handleFormSubmit}>
+            <Form.Field>
+              <Input
+                action="Search"
+                value={this.state.search}
+                name="search"
+                onChange={this.handleInputChange}
+                placeholder="Find an event..."
+                id="userInput"
+                style={{ height: "50px" }}
+              />
+            </Form.Field>
+          </Form>
+        </Container>
       </div>
     );
   }

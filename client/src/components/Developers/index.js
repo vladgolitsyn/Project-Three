@@ -1,42 +1,98 @@
 import React from "react";
-import { Grid, Image, Header } from "semantic-ui-react";
-import mike from "../../images/mike.png";
+import { Container, Grid, Image, Header, Card } from "semantic-ui-react";
+import mike from "../../images/mike.jpg";
 import vlad from "../../images/Vlad.png";
-import somat from "../../images/somat.jpeg";
+import somat from "../../images/somat4.jpg";
 import Shewah from "../../images/szewah.png";
-import aman from "../../images/aman.jpeg";
+import aman from "../../images/aman5.jpg";
 
 import "./style.css";
 
 const Developers = () => (
-  <div className="developer">
-    <Grid columns={5} divided>
-      <Grid.Row>
+  <Container style={{ width: "60%" }}>
+    <Grid centered columns={2}>
+      <Grid.Row centered columns={3} textAlign="center">
         <Grid.Column>
-          <Image src={mike} />
-          <Header as="h3">Mike</Header>
-          <Header as="h6">Web Developer</Header>
+          <Image
+            src={mike}
+            style={{
+              margin: "auto",
+              boxShadow:
+                "0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"
+            }}
+            size="medium"
+          />
+          <Header as="h2" style={{ textAlign: "center", marginBottom: "2px" }}>
+            Mike
+          </Header>
+          <p className="title">Web Developer</p>
         </Grid.Column>
         <Grid.Column>
-          <Image src={vlad} />
-          <Header as="h3">Vlad</Header>
-          <Header as="h6">Web Developer</Header>
+          <Image
+            src={vlad}
+            style={{
+              margin: "auto",
+              boxShadow:
+                "0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"
+            }}
+            size="medium"
+          />
+          <Header as="h2" style={{ textAlign: "center", marginBottom: "2px" }}>
+            Vlad
+          </Header>
+          <p className="title">Web Developer</p>
         </Grid.Column>
         <Grid.Column>
-          <Image src={Shewah} /> <Header as="h3">Shewah</Header>
-          <Header as="h6">Web Developer</Header>
+          <Image
+            src={Shewah}
+            style={{
+              margin: "auto",
+              boxShadow:
+                "0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"
+            }}
+            size="medium"
+          />
+          <Header as="h2" style={{ textAlign: "center", marginBottom: "2px" }}>
+            Szewah
+          </Header>
+          <p className="title">Web Developer</p>
+        </Grid.Column>
+      </Grid.Row>
+
+      <Grid.Row centered columns={3} textAlign="center">
+        <Grid.Column>
+          <Image
+            src={somat}
+            style={{
+              margin: "auto",
+              boxShadow:
+                "0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"
+            }}
+            size="medium"
+          />
+          <Header as="h2" style={{ textAlign: "center", marginBottom: "2px" }}>
+            Somat
+          </Header>
+          <p className="title">Web Developer</p>
         </Grid.Column>
         <Grid.Column>
-          <Image src={somat} /> <Header as="h3">Somat</Header>
-          <Header as="h6">Web Developer</Header>
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={aman} /> <Header as="h3">Aman</Header>
-          <Header as="h6">Web Developer</Header>
+          <Image
+            src={aman}
+            style={{
+              margin: "auto",
+              boxShadow:
+                "0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"
+            }}
+            size="medium"
+          />
+          <Header as="h2" style={{ textAlign: "center", marginBottom: "2px" }}>
+            Aman
+          </Header>
+          <p className="title">Web Developer</p>
         </Grid.Column>
       </Grid.Row>
     </Grid>
-  </div>
+  </Container>
 );
 
 export default Developers;
