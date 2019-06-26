@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -56,6 +56,14 @@ class Login extends Component {
       <Container fluid>
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
+            {!!errors.email && (
+              <Message
+                color="red"
+                icon="delete"
+                header={errors.email}
+                content=""
+              />
+            )}
             {!!errors.emailnotfound && (
               <Message
                 color="red"
@@ -75,6 +83,14 @@ class Login extends Component {
             />
           </Form.Field>
           <Form.Field>
+            {!!errors.password && (
+              <Message
+                color="red"
+                icon="delete"
+                header={errors.password}
+                content=""
+              />
+            )}
             {!!errors.passwordincorrect && (
               <Message
                 color="red"
