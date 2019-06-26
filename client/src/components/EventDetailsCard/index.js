@@ -50,18 +50,22 @@ class EventDetailsCard extends React.Component {
                 <p>{this.props.eventDetails.images.url}</p>
               </div>
               <div className="date-and-icons">
-                <h5 className="large-date">
-                  {" "}
-                  {moment(this.props.eventDetails.dates.start.dateTime).format(
-                    "DD"
-                  )}
-                </h5>
-                <h6 className="large-month">
-                  {" "}
-                  {moment(this.props.eventDetails.dates.start.dateTime).format(
-                    "MMMM"
-                  )}
-                </h6>
+                <div className="large-date-container">
+                  <h5 className="large-date">
+                    {" "}
+                    {moment(
+                      this.props.eventDetails.dates.start.dateTime
+                    ).format("DD")}
+                  </h5>
+                </div>
+                <div className="large-month-container">
+                  <h6 className="large-month">
+                    {" "}
+                    {moment(
+                      this.props.eventDetails.dates.start.dateTime
+                    ).format("MMMM")}
+                  </h6>
+                </div>
                 <ul className="selected-event-icons">
                   <li>
                     <i className="fas fa-users fa-2x event-icons" />
