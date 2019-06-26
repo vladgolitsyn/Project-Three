@@ -10,7 +10,7 @@ import About from "./pages/About/About";
 // import Landing from "./pages/layout/Homepage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
-import PrivateRoute from "./components/private-route/PrivateRoute";
+// import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
@@ -63,7 +63,8 @@ class App extends Component {
             <Route exact path="/chat" component={Chat} />
 
             <Switch>
-              <PrivateRoute exact path="/profile" component={Dashboard} />
+              <Route exact path="/profile" component={Dashboard} />
+              {/* <PrivateRoute exact path="/profile" component={Dashboard} /> */}
             </Switch>
           </div>
         </Router>
