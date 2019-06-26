@@ -8,7 +8,7 @@ module.exports = {
 
   create: function(req, res) {
     const { eventName, eventDate } = req.body;
-    let groupName = eventName + "_" + eventDate;
+    let groupName = eventName + eventDate;
     // groupName = groupName.replace(/ /g, "");
     console.log("[DEBUG] trying to create group", groupName);
     Group.findOne({
@@ -18,7 +18,6 @@ module.exports = {
       }
     }).then(group => {
       console.log("[DEBUG] group exists?", group);
-      res.json(group.addUsers(req.body.userId));
 
       if (group) {
         console.log("[DEBUG] group does exists", group);
