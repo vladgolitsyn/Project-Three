@@ -1,11 +1,40 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import style from "./style.css";
-import { Button, Form, Container, Header, Icon } from "semantic-ui-react";
+import API from "../../utils/API";
+import { Button, Container, Header, Icon } from "semantic-ui-react";
+import { createEventGroup } from "../../actions/groupActions";
 
 class Dashboard extends Component {
-  onClick = () => {
+  constructor() {
+    super();
+    this.state = {
+      groups: []
+    };
+  }
+
+  componentDidMount() {
+    this.loadUserGroups(this.props.auth.user.id);
+    if (this.props.eventChatBeingJoined) {
+      console.log("[DEBUG] group event", this.props.eventChatBeingJoined);
+      API.createGroup({
+        ...this.props.eventChatBeingJoined,
+        userId: this.props.auth.user.id
+      }).then(data => this.loadUserGroups(this.props.auth.user.id));
+    }
+  }
+
+  loadUserGroups = id => {
+    API.getAllGroups(id)
+      .then(res => {
+        this.setState({
+          groups: res.data.groups
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  onClick = event => {
     this.props.history.push("/chat");
   };
 
@@ -23,7 +52,10 @@ class Dashboard extends Component {
             <Icon name="users" circular />
             <Header.Content> Welcome, {name}</Header.Content>
 
-            <Header.Content className="eventName"> Event Name</Header.Content>
+            <Header.Content> Event Name</Header.Content>
+            {this.state.groups.map(group => {
+              return <Header.Content>{group.name}</Header.Content>;
+            })}
             <Button className="eventGroup" onClick={this.onClick}>
               Go to Event Group
             </Button>
@@ -35,11 +67,17 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
+  createEventGroup: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
+  // groupChat: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  eventChatBeingJoined: state.eventChatBeingJoined
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(
+  mapStateToProps,
+  { createEventGroup }
+)(Dashboard);
