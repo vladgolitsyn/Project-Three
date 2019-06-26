@@ -21,9 +21,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = models => {
-    User.belongsToMany(models.ChatGroup, {
+    User.belongsToMany(models.GroupChat, {
       through: "UserGroup",
-      as: "group",
       foreignKey: "userId"
     });
   };

@@ -12,24 +12,19 @@ export class Logout extends Component {
     this.props.logoutUser();
   };
   render() {
-    return (
-      <Menu.Menu>
-        <Menu.Item onClick={this.onLogoutClick} href="/">
-          Logout
-        </Menu.Item>
-      </Menu.Menu>
-    );
+    return <Menu.Item onClick={this.onLogoutClick}>Logout</Menu.Item>;
   }
 }
 
 Logout.propTypes = {
-  logoutUser: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 export default connect(
-  null,
+  mapStateToProps,
   { logoutUser }
 )(Logout);

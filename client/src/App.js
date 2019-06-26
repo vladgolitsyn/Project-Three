@@ -6,7 +6,8 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/Navbar";
-import Landing from "./pages/layout/Homepage";
+import About from "./pages/About/About";
+// import Landing from "./pages/layout/Homepage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -16,6 +17,14 @@ import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import EventList from "./components/EventList/index";
 import Chat from "./pages/chat/Chat";
+import io from "socket.io-client";
+// import "./app.css";
+
+const socket = io("http://localhost:3001", {
+  transports: ["websocket"]
+});
+
+// const socket = io('http://localhost:3001', { secure: true, reconnect: true })
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -44,7 +53,9 @@ class App extends Component {
           <div>
             <Navbar />
             {/* <Route exact path="/" component={Landing} /> */}
+
             <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signin" component={Login} />

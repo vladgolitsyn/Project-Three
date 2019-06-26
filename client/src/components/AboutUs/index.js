@@ -1,29 +1,31 @@
 import React from "react";
-import { Grid, Image } from "semantic-ui-react";
-import logo from "../../images/logo.png";
+import { Header, Grid, GridColumn } from "semantic-ui-react";
 import "./style.css";
+
 const DividerExampleVertical = () => (
-  <div className="aboutUs">
-    <Grid>
-      <Grid.Column width={3}>
-        <p>
-          <Image src={logo} size="large" className="logo" circular />
-        </p>
-      </Grid.Column>
-      <Grid.Column width={13}>
-        <p>
-          The SoundBudz team was founded in 2019 in a small classroom in New
-          York City, NY. Our app is designed for all women and men, who really
-          love the live music and want to go to concerts. Its not always you and
-          your friend will have a same preference of the music and that yours
-          favorite band will be perfoming. So sometimes you might have to find
-          out someone else to go with. Thats why this web application will help
-          you find the like minded person and enjoy the concert. It will provide
-          the user the platform to have a discussion about the show or concert
-          you want to attend and know more about the band and the artist.
-        </p>
-      </Grid.Column>
-    </Grid>
+  <div className="container" style={{ width: "60%" }}>
+    <Header as="h2" style={{ textAlign: "center" }}>
+      SOUNDBUDZ IS FOR PEOPLE WHO REALLY LOVE LIVE MUSIC
+    </Header>
+
+    <p className="about-paragraph">
+      You won't always have the same music interest as a friend. Sometimes
+      you'll need to find others who share your passion for an artist and who
+      you can go to a live event with.
+    </p>
+    <p className="about-paragraph">
+      SoundBudz does exactly that. It connects you with like minded people so
+      you get to talk about the artist you love and together, see them play.
+    </p>
+    <br />
+    <br />
+    <Header as="h2" style={{ textAlign: "center" }}>
+      MEET THE TEAM
+    </Header>
+    <p className="about-paragraph">
+      SoundBudz was founded in 2019 by a group of music lovers, in a small
+      classroom at Columbia University, in New York City.
+    </p>
   </div>
 );
 

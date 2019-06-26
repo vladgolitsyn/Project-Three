@@ -3,7 +3,10 @@ import "./style.css";
 import moment from "moment";
 import Map from "../../components/Map/map";
 import SeatMap from "../../components/SeatMap/index";
+import { createEventGroup, setGroupChat } from "../../actions/groupActions";
+import { connect } from "react-redux";
 
+import { Route, Redirect } from "react-router";
 class EventDetailsCard extends React.Component {
   state = {
     shouldShowMap: false,
@@ -18,6 +21,27 @@ class EventDetailsCard extends React.Component {
     this.setState({ shouldShowSeatMap: !this.state.shouldShowSeatMap });
   };
 
+  onClick = event => {
+    console.log("[DEBUG] setting group chat trying to join");
+    if (this.props.auth.isAuthenticated === true) {
+      this.props.createEventGroup({
+        eventName: this.props.eventDetails.name,
+        eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+          "dddd, MMMM Do YYYY"
+        ),
+        userId: this.props.auth.user.id
+      });
+    } else {
+      setGroupChat({
+        eventName: this.props.eventDetails.name,
+        eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+          "dddd, MMMM Do YYYY"
+        ),
+        userId: this.props.auth.user.id
+      });
+      // this.props.history.push("/login");
+    }
+  };
   render() {
     console.log("DEBUG", this.props, this.state);
     return (
@@ -110,4 +134,13 @@ class EventDetailsCard extends React.Component {
   }
 }
 
-export default EventDetailsCard;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { createEventGroup, setGroupChat }
+)(EventDetailsCard);
+
+// export default EventDetailsCard;

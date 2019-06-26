@@ -3,6 +3,12 @@ import React from "react";
 import axios from "axios";
 import EventDetails from "../../components/EventDetailsCard/index";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
+import { Container, Header, Button } from "semantic-ui-react";
+import { createEventGroup, setGroupChat } from "../../actions/groupActions";
+import style from "./style.css";
+import { connect } from "react-redux";
+import EventList from "../../components/EventList/index";
 import EventListHeader from "../../components/EventListHeader/index";
 import EventsCard from "../../components/EventsCard/index";
 
@@ -63,4 +69,11 @@ class Events extends React.Component {
   }
 }
 
-export default Events;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { createEventGroup, setGroupChat }
+)(Events);
