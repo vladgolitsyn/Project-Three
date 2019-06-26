@@ -10,22 +10,22 @@ class EventDetails extends React.Component {
     shouldShowSeatMap: false
   };
 
-  componentDidMount() {
-    console.log("loaded");
-    // this.setState({
-    //   eventDetails: this.props.eventDetails
-    // });
-  }
+  // componentDidMount() {
+  //   console.log("loaded");
+  //   // this.setState({
+  //   //   eventDetails: this.props.eventDetails
+  //   // });
+  // }
 
-  loadEventDetails = () => {
-    API.getEventDetails()
-      .then(res =>
-        this.setState({
-          eventDetails: res.data._embedded.events[0]
-        })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadEventDetails = () => {
+  //   API.getEventDetails()
+  //     .then(res =>
+  //       this.setState({
+  //         eventDetails: res.data._embedded.events[0]
+  //       })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   toggleMap() {
     this.setState({ shouldShowMap: !this.state.shouldShowMap });

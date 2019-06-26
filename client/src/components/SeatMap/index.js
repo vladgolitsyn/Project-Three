@@ -5,7 +5,7 @@ const seatmapStyles = {
   margin: "10px auto 100px auto"
 };
 
-export default class ArtistImage extends Component {
+export default class Seatmap extends Component {
   render() {
     console.log("RENDERING SEAT MAP", this.props);
     return (

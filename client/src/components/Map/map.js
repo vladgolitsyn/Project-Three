@@ -33,7 +33,7 @@ export class MapContainer extends Component {
   };
 
   render() {
-    console.log("DEBUG G MAP", this.props.eventDetails);
+    console.log("DEBUG G MAP", this.props);
     return (
       <div>
         {this.props.eventDetails && (
