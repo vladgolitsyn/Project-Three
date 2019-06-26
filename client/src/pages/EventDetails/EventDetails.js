@@ -6,13 +6,15 @@ import EventDetailsCard from "../../components/EventDetailsCard/index";
 
 class EventDetails extends React.Component {
   state = {
-    eventDetails: [],
     shouldShowMap: false,
     shouldShowSeatMap: false
   };
 
   componentDidMount() {
-    this.loadEventDetails();
+    console.log("loaded");
+    // this.setState({
+    //   eventDetails: this.props.eventDetails
+    // });
   }
 
   loadEventDetails = () => {
@@ -25,15 +27,16 @@ class EventDetails extends React.Component {
       .catch(err => console.log(err));
   };
 
-  toggleMap = () => {
+  toggleMap() {
     this.setState({ shouldShowMap: !this.state.shouldShowMap });
-  };
+  }
 
   toggleSeatMap = () => {
     this.setState({ shouldShowSeatMap: !this.state.shouldShowSeatMap });
   };
 
   render() {
+    console.log("RENDER", this.props.eventDetails);
     return (
       <div>
         <EventDetailsCard

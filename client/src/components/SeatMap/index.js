@@ -7,11 +7,10 @@ const seatmapStyles = {
 
 export default class ArtistImage extends Component {
   render() {
+    console.log("RENDERING SEAT MAP", this.props);
     return (
       <div>
-        {this.props.eventDetails.length === 0 ? (
-          <div />
-        ) : (
+        {this.props.eventDetails && (
           <div>
             <img
               src={this.props.eventDetails.seatmap.staticUrl}

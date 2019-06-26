@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -14,6 +14,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
+import EventList from "./components/EventList/index";
 import Chat from "./pages/chat/Chat";
 
 // Check for token to keep user logged in
@@ -47,9 +48,14 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signin" component={Login} />
-            <Route exact path="/events" component={Events} />
-            <Route exact path="/eventdetails" component={EventDetails} />
+            <Route exact path="/events/:artistname" component={Events} />
+            {/* <Route
+              exact
+              path="/events/details/:eventid"
+              component={EventDetails}
+            /> */}
             <Route exact path="/chat" component={Chat} />
+
             <Switch>
               <PrivateRoute exact path="/profile" component={Dashboard} />
             </Switch>
