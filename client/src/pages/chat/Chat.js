@@ -1,87 +1,102 @@
-    
-import React, {Component} from "react";
-import socketIOClient from "socket.io-client";
-import {Container, Header, Comment, Divider, Form} from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Container, Comment, Form } from "semantic-ui-react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import "./style.css";
+import Footer from "../../components/Footer";
+import io from "socket.io-client";
 
-class Chat extends Component{
-    socket = null;
+class Chat extends Component {
+  socket = null;
 
-    state = {
-        name: '',
-        message: '',
-        messages: []
-    };
-    
-    componentDidMount() {
-        this.socket = socketIOClient('http://localhost:3001', {
-            transports: ['websocket']
-          });
-        this.socket.on('connect', () => {
-            console.log('connected')
-        });
+  state = {
+    message: "",
+    messages: []
+  };
 
-        this.socket.on('new-message', message => {
-            const { messages } = this.state;
-            const udpatedMessages = [...messages, message];
-            this.setState({ messages: udpatedMessages });
-        });
-    }
+  componentDidMount() {
+    this.socket = io.connect("http://localhost:3001");
+    // console.log(this.props);
+    // const {socket} = this.props;
+    // console.log(socket);
+    this.socket.on("connect", data => {
+      console.log("This is the chat socket connection ", data);
+    });
 
+    this.socket.on("new-message", message => {
+      const { messages } = this.state;
+      const udpatedMessages = [...messages, message];
+      this.setState({ messages: udpatedMessages });
+    });
+  }
 
-    handleChange = e => {
-        // const {name, value} = e.target;
-        this.setState({[e.target.name]: e.target.value})
-    }
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-    sendMessage = e => {
-        const {name, message} = this.state;
-        this.setState({name, message})
-        const user = 'user1';
-        this.socket.emit('new-message', `${user}: ${message}`)
-        console.log(this.state.message);
-    }
+  sendMessage = e => {
+    // const { socket } = this.props;
+    const { message } = this.state;
+    this.setState({ message });
+    const user = this.props.auth.user.name;
+    this.socket.emit("new-message", `${user}: ${message}`);
+    console.log(this.state.message);
+  };
 
+  render() {
+    return (
+      <div>
+        <div className="chat-header-h1">
+          <p className="chat-header-p">Event Name Chat Group</p>
+        </div>
 
-    render() {
-        return (
-            <div>
-                <Container>
-                    <Header as='h3' dividing>
-                        Chats
-                    </Header>
+        <Container style={{ marginTop: "30px" }}>
+          <div className="event-chat-area">
+            {this.state.messages.map((message, index) => {
+              return (
+                <Comment key={index}>
+                  <Comment.Content style={{ margin: "10px" }}>
+                    <Comment.Text>{message}</Comment.Text>
+                  </Comment.Content>
+                </Comment>
+              );
+            })}
+          </div>
+        </Container>
 
-                    <div className="messages">
-                        {this.state.messages.map(message => {
-                            return ( 
-                                <Comment>
-                                    <Comment.Content>     
-                                        {/* <Comment.Author>Name: {this.state.name}</Comment.Author> */}
-                                        <Comment.Text>{message}</Comment.Text>
-                                    </Comment.Content>
-                                </Comment>
-                            )
-                        })}
-                    </div>
-
-                    <Divider/>
-
-                    <Form onSubmit={this.sendMessage}>
-                        <Form.Group>
-                            <Form.Input
-                                placeholder='Message'
-                                name='message'
-                                value={this.state.message}
-                                onChange={this.handleChange}
-                                />
-                            <Form.Button content='Send' />
-                        </Form.Group>
-                    </Form>
-
-                </Container>
-
-            </div>
-        )
-    }
+        <Container style={{ marginTop: "5px" }}>
+          <Form onSubmit={this.sendMessage} className="event-chat-form">
+            <Form.Input
+              placeholder="Message"
+              name="message"
+              value={this.state.message}
+              className="event-chat-input"
+              style={{ height: "50px" }}
+              onChange={this.handleChange}
+            />
+            <Form.Button
+              content="+"
+              className="event-chat-btn"
+              style={{ background: "purple", color: "white" }}
+            />
+          </Form>
+        </Container>
+        <Footer style={{ bottom: "0" }} />
+      </div>
+    );
+  }
 }
 
-export default Chat;
+// export default Chat;
+Chat.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Chat);

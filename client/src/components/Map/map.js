@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
-import API from "../../utils/API";
 
 const mapStyles = {
-  width: "350px",
-  height: "350px"
+  width: "600px",
+  height: "500px",
+  display: "block",
+  margin: "50px auto 0px auto"
 };
 
 export class MapContainer extends Component {
@@ -13,20 +14,6 @@ export class MapContainer extends Component {
     activeMarker: {}, //Shows the active marker upon click
     selectedPlace: {}, //Shows the infoWindow to the selected place upon a marker
     eventDetails: []
-  };
-
-  componentDidMount() {
-    this.loadEventDetails();
-  }
-
-  loadEventDetails = () => {
-    API.getEventDetails()
-      .then(res =>
-        this.setState({
-          eventDetails: res.data._embedded.events[0]
-        })
-      )
-      .catch(err => console.log(err));
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -46,10 +33,11 @@ export class MapContainer extends Component {
   };
 
   render() {
+    console.log("DEBUG G MAP", this.props.eventDetails);
     return (
       <div>
-        {this.state.eventDetails.length === 0 ? (
-          <p>Loading Event Details...</p>
+        {this.props.eventDetails.length === 0 ? (
+          <div />
         ) : (
           <div>
             <Map
@@ -58,16 +46,16 @@ export class MapContainer extends Component {
               style={mapStyles}
               initialCenter={{
                 lat: Object.assign(
-                  this.state.eventDetails._embedded.venues[0].location.latitude
+                  this.props.eventDetails._embedded.venues[0].location.latitude
                 ),
                 lng: Object.assign(
-                  this.state.eventDetails._embedded.venues[0].location.longitude
+                  this.props.eventDetails._embedded.venues[0].location.longitude
                 )
               }}
             >
               <Marker
                 onClick={this.onMarkerClick}
-                name={this.state.eventDetails._embedded.venues[0].name}
+                name={this.props.eventDetails._embedded.venues[0].name}
               />
               <InfoWindow
                 marker={this.state.activeMarker}
@@ -77,9 +65,9 @@ export class MapContainer extends Component {
                 <div>
                   <h5>{this.state.selectedPlace.name}</h5>
                   <p>
-                    {this.state.eventDetails._embedded.venues[0].address.line1}
+                    {this.props.eventDetails._embedded.venues[0].address.line1}
                   </p>
-                  <p>Event: {this.state.eventDetails.name}</p>
+                  <p>Event: {this.props.eventDetails.name}</p>
                 </div>
               </InfoWindow>
             </Map>

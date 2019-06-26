@@ -1,0 +1,63 @@
+.list--event-card {
+  position: relative;
+  height: 200px;
+  width: 900px;
+  margin: 50px auto;
+  background-color: #fff;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.list--event-card:hover {
+  cursor: pointer;
+  transition: 200ms ease;
+  transform: scale(1.05);
+}
+
+.list--artist-poster {
+  float: left;
+  position: relative;
+  left: 5px;
+  top: 5px;
+  height: 100px;
+  width: 175px;
+  -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.list--event-card-title {
+  width: 720px;
+  height: 100px;
+  position: relative;
+  float: right;
+  top: 5px;
+}
+
+.list--event-name {
+  height: 100px;
+  padding: 20px 10px 0 20px;
+  text-decoration: underline;
+}
+
+.list--separator {
+  border: 1px solid rgb(53, 53, 53);
+}
+
+.list--event-details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list--event-details li {
+  display: inline;
+  list-style: none;
+  color: #7b7b7b;
+}

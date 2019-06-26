@@ -4,6 +4,8 @@ import { Container, Header, Button } from "semantic-ui-react";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 import style from "./style.css";
 import { connect } from "react-redux";
+import EventList from "../../components/EventList/index";
+import EventListHeader from "../../components/EventListHeader/index";
 
 class Events extends React.Component {
   state = {
@@ -44,29 +46,11 @@ class Events extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div>
         <Button onClick={this.onClick}>Choose A Event</Button>
-        <div>
-          <h1>Events</h1>
-          {this.state.events.length === 0 ? (
-            <p>Loading Events...</p>
-          ) : (
-            <div>
-              {this.state.events.map(function(event) {
-                return (
-                  <div>
-                    <li>{event.name}</li>
-                    <li>{event.id}</li>
-                    <li>{event.url}</li>
-                    <li>{event.dates.start.dateTime}</li>
-                    <br />
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </Container>
+        <EventListHeader />
+        <EventList />
+      </div>
     );
   }
 }

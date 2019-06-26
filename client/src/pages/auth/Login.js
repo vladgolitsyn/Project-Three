@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 // import classnames from "classnames";
+import "./style.css";
 import { Button, Form, Container, Message, Header } from "semantic-ui-react";
+
 class Login extends Component {
   constructor() {
     super();
@@ -51,10 +53,22 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
-
     return (
       <Container fluid>
-        <Form onSubmit={this.onSubmit}>
+        <h1
+          style={{
+            marginTop: "120px",
+            textAlign: "center",
+            fontWeight: "lighter"
+          }}
+        >
+          Welcome back!
+        </h1>
+        <Form
+          onSubmit={this.onSubmit}
+          className="login-form"
+          style={{ width: "30%", marginTop: "50px" }}
+        >
           <Form.Field>
             {!!errors.email && (
               <Message
@@ -65,21 +79,17 @@ class Login extends Component {
               />
             )}
             {!!errors.emailnotfound && (
-              <Message
-                color="red"
-                icon="delete"
-                header={errors.emailnotfound}
-                content=""
-              />
+              <Message color="red" header={errors.emailnotfound} content="" />
             )}
-            <label>email</label>
+            <label />
             <input
               type="Email"
               id="email"
-              placeholder="Enter Email"
+              placeholder="Email"
               value={this.state.email}
               error={errors.emailnotfound}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
@@ -99,20 +109,25 @@ class Login extends Component {
                 content=""
               />
             )}
-            <label>Password</label>
+            <label />
             <input
               type="password"
               id="password"
-              placeholder="Enter Password"
+              placeholder="Password"
               value={this.state.password}
               error={errors.passwordincorrect}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
-          <Button color="olive" type="submit">
+          <Button
+            className="btn-login"
+            type="submit"
+            style={{ height: "40px", marginBottom: "8px" }}
+          >
             Log in
           </Button>
-          <Header as="h5">
+          <Header as="h5" style={{ textAlign: "center" }}>
             <a href="/register">Register here</a>
           </Header>
         </Form>

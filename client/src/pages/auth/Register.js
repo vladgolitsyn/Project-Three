@@ -63,17 +63,25 @@ class Register extends Component {
 
     return (
       <Container fluid>
-        <Form onSubmit={this.onSubmit}>
+        <h1
+          style={{
+            marginTop: "80px",
+            textAlign: "center",
+            fontWeight: "lighter"
+          }}
+        >
+          Let's get started
+        </h1>
+        <Form
+          onSubmit={this.onSubmit}
+          className="registration-form"
+          style={{ width: "30%", marginTop: "50px" }}
+        >
           <Form.Field>
             {!!errors.name && (
-              <Message
-                color="red"
-                icon="delete"
-                header={errors.name}
-                content=""
-              />
+              <Message color="red" header={errors.name} content="" />
             )}
-            <label>Name</label>
+            <label />
             <input
               type="text"
               className="form-control"
@@ -82,18 +90,14 @@ class Register extends Component {
               value={this.state.name}
               error={errors.name}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             {!!errors.email && (
-              <Message
-                color="red"
-                icon="delete"
-                header={errors.email}
-                content=""
-              />
+              <Message color="red" header={errors.email} content="" />
             )}
-            <label>email</label>
+            <label />
             <input
               type="Email"
               id="email"
@@ -101,18 +105,14 @@ class Register extends Component {
               value={this.state.email}
               error={errors.email}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             {!!errors.password && (
-              <Message
-                color="red"
-                icon="delete"
-                header={errors.password}
-                content=""
-              />
+              <Message color="red" header={errors.password} content="" />
             )}
-            <label>Password</label>
+            <label />
             <input
               type="password"
               id="password"
@@ -120,18 +120,14 @@ class Register extends Component {
               value={this.state.password}
               error={errors.password}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             {!!errors.password2 && (
-              <Message
-                color="red"
-                icon="delete"
-                header={errors.password2}
-                content=""
-              />
+              <Message color="red" header={errors.password2} content="" />
             )}
-            <label>Confirm Password</label>
+            <label />
             <input
               type="password"
               id="password2"
@@ -139,15 +135,21 @@ class Register extends Component {
               value={this.state.password2}
               error={errors.password2}
               onChange={this.onChange}
+              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             <Checkbox label="I agree to the Terms and Conditions" />
           </Form.Field>
-          <Button negative type="submit">
+          <Button
+            negative
+            className="btn-register"
+            type="submit"
+            style={{ height: "40px", marginBottom: "8px" }}
+          >
             Register
           </Button>
-          <Header as="h5">
+          <Header as="h5" style={{ textAlign: "center", width: "105%" }}>
             <a href="/login">Login here</a>
           </Header>
         </Form>
@@ -155,18 +157,15 @@ class Register extends Component {
     );
   }
 }
-
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-
 export default connect(
   mapStateToProps,
   { registerUser }
