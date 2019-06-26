@@ -10,25 +10,21 @@ export class Logout extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
-    this.props.history.push("/");
   };
   render() {
-    return (
-      <Menu.Item onClick={this.onLogoutClick} href="/">
-        Logout
-      </Menu.Item>
-    );
+    return <Menu.Item onClick={this.onLogoutClick}>Logout</Menu.Item>;
   }
 }
 
 Logout.propTypes = {
-  logoutUser: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
-// const mapStateToProps = state => ({
-//   auth: state.auth
-// });
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 export default connect(
-  null,
+  mapStateToProps,
   { logoutUser }
 )(Logout);

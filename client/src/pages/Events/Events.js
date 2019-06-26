@@ -26,28 +26,28 @@ class Events extends React.Component {
       .catch(err => console.log(err));
   };
 
-  onClick = event => {
-    console.log("[DEBUG] setting group chat trying to join");
-    if (this.props.auth.isAuthenticated === true) {
-      this.props.createEventGroup({
-        eventName: this.state.events[1].name,
-        eventDate: this.state.events[1].dates.start.dateTime,
-        userId: this.props.auth.user.id
-      });
-    } else {
-      setGroupChat({
-        eventName: this.state.events[1].name,
-        eventDate: this.state.events[1].dates.start.dateTime,
-        userId: this.props.auth.user.id
-      });
-      this.props.history.push("/login");
-    }
-  };
+  // onClick = event => {
+  //   console.log("[DEBUG] setting group chat trying to join");
+  //   if (this.props.auth.isAuthenticated === true) {
+  //     this.props.createEventGroup({
+  //       eventName: this.state.events[1].name,
+  //       eventDate: this.state.events[1].dates.start.dateTime,
+  //       userId: this.props.auth.user.id
+  //     });
+  //   } else {
+  //     setGroupChat({
+  //       eventName: this.state.events[1].name,
+  //       eventDate: this.state.events[1].dates.start.dateTime,
+  //       userId: this.props.auth.user.id
+  //     });
+  //     this.props.history.push("/login");
+  //   }
+  // };
 
   render() {
     return (
       <div>
-        <Button onClick={this.onClick}>Choose A Event</Button>
+        {/* <Button onClick={this.onClick}>Choose A Event</Button> */}
         <EventListHeader />
         <EventList />
       </div>

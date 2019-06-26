@@ -52,21 +52,18 @@ class App extends Component {
           <div>
             <Navbar />
             {/* <Route exact path="/" component={Landing} /> */}
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signin" component={Login} />
-              <Route exact path="/events" component={Events} />
-              <Route exact path="/eventdetails" component={EventDetails} />
-              <Route exact path="/chat" component={Chat} />
 
-              <Route
-                exact
-                path="/profile"
-                render={() => <Dashboard socket={socket} />}
-              />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signin" component={Login} />
+            <Route exact path="/events" component={Events} />
+            <Route exact path="/eventdetails" component={EventDetails} />
+            <Route exact path="/chat" component={Chat} />
+
+            <Switch>
+              <PrivateRoute exact path="/profile" component={Dashboard} />
             </Switch>
           </div>
         </Router>
