@@ -2,9 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 // const routes = require("./routes");
 const app = express();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
-const cors = require('cors');
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+const cors = require("cors");
 const passport = require("passport");
 // const flash = require("connect-flash");
 // const session = require("express-session");
@@ -31,25 +31,46 @@ app.use(passport.initialize());
 //cors
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: "http://localhost:3000",
     optionSuccessStatus: 200,
     credentials: true
   })
-)
+);
 
 //socket io
-io.on('connection', (socket) => {
-  socket.on('connect', (message) => {
+io.on("connection", socket => {
+  socket.on("connect", message => {
     console.log("This is the server message" + message);
-    socket.emit('server-message', "welcome");
+    socket.emit("server-message", "welcome");
+    socket.join("join", message);
   });
-  socket.on('new-message', (message) => {
+  socket.on("join", name => {
+    socket.join(name);
+    console.log(`${name} joined the chat`);
+  });
+  // io.on('connection', function(data){
+  // });
+  socket.on("new-message", message => {
     console.log(message);
     // write message to db
-    io.emit('new-message', message);
-  })
+    io.emit("new-message", message);
+  });
 });
 
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+app.use("/api/users", users);
+app.use("/api/users", chat);
+
+db.sequelize.sync().then(function() {
+  console.log("started!!!");
+
+  http.listen(PORT, function() {
+    console.log("App listening on http://localhost:" + PORT);
+  });
+});
 
 // Passport config
 require("./config/passport")(passport);
