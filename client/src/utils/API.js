@@ -16,5 +16,20 @@ export default {
         "https://app.ticketmaster.com/discovery/v2/events/?keyword=ariana_grande&apikey=" +
         process.env.REACT_APP_TICKETMASTER_API_KEY
     );
+  },
+  createGroup: function(groupData) {
+    return axios.post("/api/groups/", groupData);
+  },
+
+  getAllGroups: function(id) {
+    return axios.get(`/api/users/${id}/groups`);
+  },
+
+  getOneGroup: function(id) {
+    return axios.get("/api/groups/" + id);
+  },
+
+  updateGroup: function(id) {
+    return axios.put("/api/groups/" + id);
   }
 };
