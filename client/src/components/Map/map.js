@@ -33,12 +33,10 @@ export class MapContainer extends Component {
   };
 
   render() {
-    console.log("DEBUG G MAP", this.props.eventDetails);
+    console.log("DEBUG G MAP", this.props);
     return (
       <div>
-        {this.props.eventDetails.length === 0 ? (
-          <div />
-        ) : (
+        {this.props.eventDetails && (
           <div>
             <Map
               google={this.props.google}

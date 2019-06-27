@@ -103,7 +103,7 @@
 .selected-event-icons li {
   display: inline;
   list-style: none;
-  padding-right: 150px;
+  margin-right: 150px;
   color: #7b7b7b;
 }
 

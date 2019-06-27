@@ -28,6 +28,10 @@ class Navbar extends Component {
           </Menu.Item>
 
           <Menu.Item
+            name="event"
+            as={Link}
+            to="/events"
+            active={activeItem === "event"}
             className="menu"
             position="right"
             onClick={this.handleItemClick}
