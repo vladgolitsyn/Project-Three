@@ -5,7 +5,7 @@ function EventListHeader() {
   return (
     <div>
       <div className="event-header">
-        <h1>Events</h1>
+        <h4 style={{fontWeight: 'lighter'}}>Events</h4>
         <a href="/" className="event-return-btn">
           <i className="fas fa-undo-alt event-return-btn-icon" />
           Go Back

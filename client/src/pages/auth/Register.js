@@ -11,7 +11,8 @@ import {
   Form,
   Container,
   Message,
-  Header
+  Header,
+  Input
 } from "semantic-ui-react";
 
 class Register extends Component {
@@ -62,8 +63,8 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <Container fluid>
-        <h1
+      <Container style={{marginBottom:'100px'}}>
+        <h3
           style={{
             marginTop: "80px",
             textAlign: "center",
@@ -71,18 +72,18 @@ class Register extends Component {
           }}
         >
           Let's get started
-        </h1>
+        </h3>
         <Form
           onSubmit={this.onSubmit}
           className="registration-form"
-          style={{ width: "30%", marginTop: "50px" }}
+          style={{ width: "50%", margin: "30px auto", justifyContent:'center' }}
         >
           <Form.Field>
             {!!errors.name && (
               <Message color="red" header={errors.name} content="" />
             )}
             <label />
-            <input
+            <Input
               type="text"
               className="form-control"
               id="name"
@@ -90,7 +91,6 @@ class Register extends Component {
               value={this.state.name}
               error={errors.name}
               onChange={this.onChange}
-              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
@@ -98,14 +98,14 @@ class Register extends Component {
               <Message color="red" header={errors.email} content="" />
             )}
             <label />
-            <input
+            <Input
               type="Email"
               id="email"
               placeholder="Enter Email"
               value={this.state.email}
               error={errors.email}
               onChange={this.onChange}
-              style={{ height: "40px" }}
+  
             />
           </Form.Field>
           <Form.Field>
@@ -113,43 +113,43 @@ class Register extends Component {
               <Message color="red" header={errors.password} content="" />
             )}
             <label />
-            <input
+            <Input
               type="password"
               id="password"
               placeholder="Enter Password"
               value={this.state.password}
               error={errors.password}
               onChange={this.onChange}
-              style={{ height: "40px" }}
-            />
+              />
           </Form.Field>
           <Form.Field>
             {!!errors.password2 && (
               <Message color="red" header={errors.password2} content="" />
             )}
             <label />
-            <input
+            <Input
               type="password"
               id="password2"
               placeholder="Confirm Password"
               value={this.state.password2}
               error={errors.password2}
               onChange={this.onChange}
-              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             <Checkbox label="I agree to the Terms and Conditions" />
           </Form.Field>
+          <Container style={{display: 'flex', justifyContent:'center'}}>
           <Button
-            negative
-            className="btn-register"
-            type="submit"
-            style={{ height: "40px", marginBottom: "8px" }}
-          >
-            Register
-          </Button>
-          <Header as="h5" style={{ textAlign: "center", width: "105%" }}>
+              negative
+              className="btn-register"
+              type="submit"
+              style={{ height: "40px", marginBottom: "8px" }}
+            >
+              Register
+            </Button>
+          </Container>
+          <Header as="h5" style={{ textAlign: "center"}}>
             <a href="/login">Login here</a>
           </Header>
         </Form>
