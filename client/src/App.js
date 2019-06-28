@@ -13,7 +13,7 @@ import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import EventList from "./components/EventList/index";
 import Chat from "./pages/chat/Chat";

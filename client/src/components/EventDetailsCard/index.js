@@ -5,8 +5,8 @@ import Map from "../../components/Map/map";
 import SeatMap from "../../components/SeatMap/index";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 import { connect } from "react-redux";
-
-import { Route, Redirect } from "react-router";
+// import { withRouter } from "react-router-dom";
+import { Link } from "react-router";
 class EventDetailsCard extends React.Component {
   state = {
     shouldShowMap: false,
@@ -21,29 +21,31 @@ class EventDetailsCard extends React.Component {
     this.setState({ shouldShowSeatMap: !this.state.shouldShowSeatMap });
   };
 
-  onClick = event => {
-    console.log("[DEBUG] setting group chat trying to join");
-    if (this.props.auth.isAuthenticated === true) {
-      this.props.createEventGroup({
-        eventName: this.props.eventDetails.name,
-        eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
-          "dddd, MMMM Do YYYY"
-        ),
-        userId: this.props.auth.user.id
-      });
-    } else {
-      setGroupChat({
-        eventName: this.props.eventDetails.name,
-        eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
-          "dddd, MMMM Do YYYY"
-        ),
-        userId: this.props.auth.user.id
-      });
-      // this.props.history.push("/login");
-    }
-  };
+  // onClick = event => {
+  //   console.log("[DEBUG] setting group chat trying to join");
+  //   if (this.props.auth.isAuthenticated === true) {
+  //     this.props.createEventGroup({
+  //       eventName: this.props.eventDetails.name,
+  //       eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+  //         "dddd, MMMM Do YYYY"
+  //       ),
+  //       userId: this.props.auth.user.id
+  //     });
+  //   } else {
+  //     setGroupChat({
+  //       eventName: this.props.eventDetails.name,
+  //       eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+  //         "dddd, MMMM Do YYYY"
+  //       ),
+  //       userId: this.props.auth.user.id
+  //     });
+
+  //     this.props.history.push("/login");
+  //   }
+  // };
+
   render() {
-    console.log("DEBUG", this.props, this.state);
+    console.log("DEBUG", this.props);
     return (
       <React.Fragment>
         <div>
@@ -107,7 +109,7 @@ class EventDetailsCard extends React.Component {
                     </h6>
                   </div>
                   <ul className="selected-event-icons">
-                    <li>
+                    <li onClick={this.props.handleCreatGroup}>
                       <i className="fas fa-users fa-2x event-icons" />
                     </li>
                     <li onClick={this.toggleSeatMap}>
@@ -134,13 +136,13 @@ class EventDetailsCard extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+// const mapStateToProps = state => ({
+//   auth: state.auth
+// });
 
-export default connect(
-  mapStateToProps,
-  { createEventGroup, setGroupChat }
-)(EventDetailsCard);
+// export default connect(
+//   mapStateToProps,
+//
+// )(EventDetailsCard);
 
-// export default EventDetailsCard;
+export default EventDetailsCard;
