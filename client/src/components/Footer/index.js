@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Icon, Image } from "semantic-ui-react";
+import { Icon} from "semantic-ui-react";
 
 function Footer() {
   return (

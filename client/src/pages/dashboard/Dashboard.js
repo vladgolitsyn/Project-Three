@@ -87,7 +87,7 @@ class Dashboard extends Component {
               <Card.Header
                 style={{
                   textAlign: "center",
-                  marginTop: "10px",
+                  marginTop: "20px",
                   fontSize: "20px",
                   fontWeight: "400"
                 }}
@@ -104,13 +104,17 @@ class Dashboard extends Component {
               <br />
               <br />
               {this.state.groups.map(group => {
-                return <Header.Content>{group.name}</Header.Content>;
+              return <Header.Content>{group.name}</Header.Content>;
+                {/* <Card.Description
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                <Button 
+                  onClick={this.onClick}
+                  style={{marginTop: '20px'}}
+                  >{group.name}: start chatting
+                  </Button>;
+                </Card.Description> */}
               })}
-              <Card.Description
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Button onClick={this.onClick}>Start chatting</Button>
-              </Card.Description>
             </Card.Content>
           </Card>
         </Container>

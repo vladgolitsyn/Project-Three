@@ -24,8 +24,6 @@ const socket = io("http://localhost:3001", {
   transports: ["websocket"]
 });
 
-// const socket = io('http://localhost:3001', { secure: true, reconnect: true })
-
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth

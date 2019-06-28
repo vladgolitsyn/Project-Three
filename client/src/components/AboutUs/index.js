@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, GridColumn } from "semantic-ui-react";
+import { Header} from "semantic-ui-react";
 import "./style.css";
 
 const DividerExampleVertical = () => (

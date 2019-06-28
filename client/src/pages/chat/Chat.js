@@ -44,6 +44,7 @@ class Chat extends Component {
     const user = this.props.auth.user.name;
     this.socket.emit("new-message", `${user}: ${message}`);
     console.log(this.state.message);
+    this.setState({message: ''});
   };
 
   render() {
