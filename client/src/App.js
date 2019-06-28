@@ -14,8 +14,8 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
 import Home from "./pages/Home";
-import EventDetails from "./pages/EventDetails/EventDetails";
-import EventList from "./components/EventList/index";
+// import EventDetails from "./pages/EventDetails/EventDetails";
+// import EventList from "./components/EventList/index";
 import Chat from "./pages/chat/Chat";
 import io from "socket.io-client";
 // import "./app.css";
@@ -23,8 +23,6 @@ import io from "socket.io-client";
 const socket = io("http://localhost:3001", {
   transports: ["websocket"]
 });
-
-// const socket = io('http://localhost:3001', { secure: true, reconnect: true })
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {

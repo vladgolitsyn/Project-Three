@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Responsive, Dropdown, Icon, Menu, Image } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout";
 import { connect } from "react-redux";
@@ -35,9 +35,6 @@ class Navbar extends Component {
             className="menu"
             position="right"
             onClick={this.handleItemClick}
-            name="events"
-            as={Link}
-            to="/events"
           />
 
           {isAuthenticated ? (

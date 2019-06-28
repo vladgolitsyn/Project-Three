@@ -13,7 +13,7 @@ class EventDetailsCard extends React.Component {
     shouldShowSeatMap: false
   };
 
-  toggleMap() {
+  toggleMap = () =>{
     this.setState({ shouldShowMap: !this.state.shouldShowMap });
   }
 
@@ -64,9 +64,9 @@ class EventDetailsCard extends React.Component {
                   />
                 </div>
                 <div className="event-details-content">
-                  <h1 className="artist-name">
+                  <h3 className="artist-name">
                     {this.props.eventDetails.name}
-                  </h1>
+                  </h3>
                   <div className="separator" />
                   <p>{this.props.eventDetails._embedded.venues[0].name}</p>
                   <p>

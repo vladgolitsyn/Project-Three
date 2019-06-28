@@ -15,7 +15,6 @@ export class SimpleSlider extends Component {
       cssEase: "linear",
       autoplay: true,
       dots: true,
-      infinite: true,
       slidesToShow: 1
       // slidesToScroll: 1
     };

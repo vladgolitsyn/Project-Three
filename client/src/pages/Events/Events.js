@@ -4,11 +4,11 @@ import axios from "axios";
 import EventDetails from "../../components/EventDetailsCard/index";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import { Container, Header, Button } from "semantic-ui-react";
+// import { Container, Header, Button } from "semantic-ui-react";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
-import style from "./style.css";
+// import style from "./style.css";
 import { connect } from "react-redux";
-import EventList from "../../components/EventList/index";
+// import EventList from "../../components/EventList/index";
 import EventListHeader from "../../components/EventListHeader/index";
 import EventsCard from "../../components/EventsCard/index";
 
@@ -20,6 +20,7 @@ class Events extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props)
     // this.loadEvents();
     const {
       match: { params }
@@ -32,7 +33,10 @@ class Events extends React.Component {
             params.artistname
           }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
       )
-      .then(res => this.setState({ events: res.data._embedded.events }))
+      .then(res => {
+        console.log(res.data._embedded.events);
+        this.setState({ events: res.data._embedded.events })
+      })
       .catch(err => console.log(err));
   }
 
