@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/Footer";
-import SimpleSlider from "../components/SimpleSlider";
-import SearchField from "../components/SearchField";
+import Footer from "../../components/Footer";
+import SimpleSlider from "../../components/SimpleSlider";
+import SearchField from "../../components/SearchField";
 
 function Home() {
   return (

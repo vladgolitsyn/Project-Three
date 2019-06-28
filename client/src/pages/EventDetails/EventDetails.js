@@ -43,6 +43,7 @@ class EventDetails extends React.Component {
           eventDetails={this.state.eventDetails}
           toggleMap={this.toggleMap}
           toggleSeatMap={this.toggleSeatMap}
+          handleOnClick={this.props.handleOnClick}
         />
         {this.state.shouldShowMap && (
           <Map eventDetails={this.state.eventDetails} />

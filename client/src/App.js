@@ -13,9 +13,15 @@ import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
+<<<<<<< HEAD
 import Home from "./pages/Home";
 // import EventDetails from "./pages/EventDetails/EventDetails";
 // import EventList from "./components/EventList/index";
+=======
+import Home from "./pages/Home/Home";
+import EventDetails from "./pages/EventDetails/EventDetails";
+import EventList from "./components/EventList/index";
+>>>>>>> a288540bd6a0fb2a8e53f4b4fc90f12dd486b1bc
 import Chat from "./pages/chat/Chat";
 import io from "socket.io-client";
 // import "./app.css";

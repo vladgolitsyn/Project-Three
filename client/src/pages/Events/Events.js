@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 // import EventList from "../../components/EventList/index";
 import EventListHeader from "../../components/EventListHeader/index";
 import EventsCard from "../../components/EventsCard/index";
-
+import moment from "moment";
 class Events extends React.Component {
   state = {
     events: [],
@@ -20,7 +20,6 @@ class Events extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     // this.loadEvents();
     const {
       match: { params }
@@ -35,7 +34,7 @@ class Events extends React.Component {
       )
       .then(res => {
         console.log(res.data._embedded.events);
-        this.setState({ events: res.data._embedded.events })
+        this.setState({ events: res.data._embedded.events });
       })
       .catch(err => console.log(err));
   }
@@ -44,8 +43,32 @@ class Events extends React.Component {
     this.setState({ clickedEvent: clickedEvent, eventClicked: true });
   };
 
+  handleCreatGroup = event => {
+    console.log("[DEBUG] setting group chat trying to join");
+    if (this.props.auth.isAuthenticated === true) {
+      this.props.createEventGroup({
+        eventName: "ariana grande",
+        // eventName: this.props.eventDetails.name,
+        // eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+        //   "dddd, MMMM Do YYYY"
+        // ),
+        eventDate: "2018-19-20",
+        userId: this.props.auth.user.id
+      });
+    } else {
+      setGroupChat({
+        eventName: "ariana grande",
+        eventDate: "2018-19-20",
+        userId: this.props.auth.user.id
+      });
+
+      this.props.history.push("/login");
+    }
+  };
+
   renderEvents = () => {
     return this.state.events.map(clickEvent => {
+      // console.log(clickEvent);
       return (
         <EventsCard
           events={clickEvent}
@@ -60,7 +83,10 @@ class Events extends React.Component {
     return (
       <div>
         {this.state.eventClicked && (
-          <EventDetails eventDetails={this.state.clickedEvent} />
+          <EventDetails
+            eventDetails={this.state.clickedEvent}
+            handleCreatGroup={this.handleCreatGroup}
+          />
         )}
         {!this.state.eventClicked && (
           <div>
