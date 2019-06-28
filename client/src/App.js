@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -14,8 +14,8 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Events from "./pages/Events/Events";
 import Home from "./pages/Home/Home";
-import EventDetails from "./pages/EventDetails/EventDetails";
-import EventList from "./components/EventList/index";
+// import EventDetails from "./pages/EventDetails/EventDetails";
+// import EventList from "./components/EventList/index";
 import Chat from "./pages/chat/Chat";
 import io from "socket.io-client";
 // import "./app.css";

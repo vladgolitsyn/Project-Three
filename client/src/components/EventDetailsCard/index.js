@@ -3,10 +3,10 @@ import "./style.css";
 import moment from "moment";
 import Map from "../../components/Map/map";
 import SeatMap from "../../components/SeatMap/index";
-import { createEventGroup, setGroupChat } from "../../actions/groupActions";
-import { connect } from "react-redux";
+// import { createEventGroup, setGroupChat } from "../../actions/groupActions";
+// import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom";
-import { Link } from "react-router";
+// import { Link } from "react-router";
 class EventDetailsCard extends React.Component {
   state = {
     shouldShowMap: false,
@@ -63,6 +63,7 @@ class EventDetailsCard extends React.Component {
                   <img
                     src={this.props.eventDetails.images[1].url}
                     className="artist-poster"
+                    alt="artist"
                   />
                 </div>
                 <div className="event-details-content">

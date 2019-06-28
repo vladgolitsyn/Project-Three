@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./style.css";
 
 export default class EventsCard extends React.Component {
@@ -13,6 +13,7 @@ export default class EventsCard extends React.Component {
             <img
               src={this.props.events.images[4].url}
               className="list--artist-poster"
+              alt="event"
             />
           </div>
           <div className="list--event-card-title">

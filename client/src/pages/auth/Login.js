@@ -64,10 +64,11 @@ class Login extends Component {
         >
           Welcome back!
         </h1>
+        <div className="form-container" styling={{display: 'flex', justifyContent:'center'}}>
         <Form
           onSubmit={this.onSubmit}
           className="login-form"
-          style={{ width: "30%", marginTop: "50px" }}
+          style={{ width: "30%", margin: 'auto'}}
         >
           <Form.Field>
             {!!errors.email && (
@@ -131,6 +132,7 @@ class Login extends Component {
             <a href="/register">Register here</a>
           </Header>
         </Form>
+        </div>
       </Container>
     );
   }
