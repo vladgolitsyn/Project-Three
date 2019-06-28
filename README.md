@@ -15,6 +15,5 @@ React, Ticketmaster and Googlemaps APIs, Sequelize, Socket.io, Mysql, Slick, Sem
 - [Szewah](https://github.com/szewah)
 - [Vlad](https://github.com/vladgolitsyn)
 
-###
-Acknowledgements
+### Acknowledgements
 Tremendous thanks to the instructors and teaching assistants at Columbia Coding Bootcamp 2019.
