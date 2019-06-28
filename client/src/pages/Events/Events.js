@@ -32,7 +32,10 @@ class Events extends React.Component {
             params.artistname
           }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
       )
-      .then(res => this.setState({ events: res.data._embedded.events }))
+      .then(res => {
+        console.log(res.data._embedded.events);
+        this.setState({ events: res.data._embedded.events });
+      })
       .catch(err => console.log(err));
   }
 
