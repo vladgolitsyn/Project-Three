@@ -1,4 +1,8 @@
 import React from "react";
+// import EventList from "../../components/EventList/index";
+import axios from "axios";
+import EventDetails from "../../components/EventDetailsCard/index";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Container, Header, Button } from "semantic-ui-react";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
@@ -6,50 +10,88 @@ import style from "./style.css";
 import { connect } from "react-redux";
 import EventList from "../../components/EventList/index";
 import EventListHeader from "../../components/EventListHeader/index";
-
+import EventsCard from "../../components/EventsCard/index";
+import moment from "moment";
 class Events extends React.Component {
   state = {
-    events: []
+    events: [],
+    clickedEvent: false,
+    eventClicked: false
   };
 
   componentDidMount() {
-    this.loadEvents();
+    // this.loadEvents();
+    const {
+      match: { params }
+    } = this.props;
+
+    return axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/" +
+          `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
+            params.artistname
+          }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
+      )
+      .then(res => this.setState({ events: res.data._embedded.events }))
+      .catch(err => console.log(err));
   }
 
-  loadEvents = () => {
-    API.getEvents()
-      .then(res =>
-        this.setState({
-          events: res.data._embedded.events
-        })
-      )
-      .catch(err => console.log(err));
+  eventID = (e, clickedEvent) => {
+    this.setState({ clickedEvent: clickedEvent, eventClicked: true });
   };
 
-  // onClick = event => {
-  //   console.log("[DEBUG] setting group chat trying to join");
-  //   if (this.props.auth.isAuthenticated === true) {
-  //     this.props.createEventGroup({
-  //       eventName: this.state.events[1].name,
-  //       eventDate: this.state.events[1].dates.start.dateTime,
-  //       userId: this.props.auth.user.id
-  //     });
-  //   } else {
-  //     setGroupChat({
-  //       eventName: this.state.events[1].name,
-  //       eventDate: this.state.events[1].dates.start.dateTime,
-  //       userId: this.props.auth.user.id
-  //     });
-  //     this.props.history.push("/login");
-  //   }
-  // };
+  handleCreatGroup = event => {
+    console.log("[DEBUG] setting group chat trying to join");
+    if (this.props.auth.isAuthenticated === true) {
+      this.props.createEventGroup({
+        eventName: "ariana grande",
+        // eventName: this.props.eventDetails.name,
+        // eventDate: moment(this.props.eventDetails.dates.start.dateTime).format(
+        //   "dddd, MMMM Do YYYY"
+        // ),
+        eventDate: "2018-19-20",
+        userId: this.props.auth.user.id
+      });
+    } else {
+      setGroupChat({
+        eventName: "ariana grande",
+        eventDate: "2018-19-20",
+        userId: this.props.auth.user.id
+      });
+
+      this.props.history.push("/login");
+    }
+  };
+
+  renderEvents = () => {
+    return this.state.events.map(clickEvent => {
+      // console.log(clickEvent);
+      return (
+        <EventsCard
+          events={clickEvent}
+          key={clickEvent.id}
+          onClick={e => this.eventID(e, clickEvent)}
+        />
+      );
+    });
+  };
 
   render() {
     return (
       <div>
-        {/* <Button onClick={this.onClick}>Choose A Event</Button> */}
-        <EventListHeader />
-        <EventList />
+        {this.state.eventClicked && (
+          <EventDetails
+            eventDetails={this.state.clickedEvent}
+            handleCreatGroup={this.handleCreatGroup}
+          />
+        )}
+        {!this.state.eventClicked && (
+          <div>
+            <EventListHeader />
+            <div>{this.state.events.length !== 0 && this.renderEvents()}</div>
+          </div>
+        )}
+        )
       </div>
     );
   }

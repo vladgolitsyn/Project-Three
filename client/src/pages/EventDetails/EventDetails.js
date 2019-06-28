@@ -6,40 +6,44 @@ import EventDetailsCard from "../../components/EventDetailsCard/index";
 
 class EventDetails extends React.Component {
   state = {
-    eventDetails: [],
     shouldShowMap: false,
     shouldShowSeatMap: false
   };
 
-  componentDidMount() {
-    this.loadEventDetails();
-  }
+  // componentDidMount() {
+  //   console.log("loaded");
+  //   // this.setState({
+  //   //   eventDetails: this.props.eventDetails
+  //   // });
+  // }
 
-  loadEventDetails = () => {
-    API.getEventDetails()
-      .then(res =>
-        this.setState({
-          eventDetails: res.data._embedded.events[0]
-        })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadEventDetails = () => {
+  //   API.getEventDetails()
+  //     .then(res =>
+  //       this.setState({
+  //         eventDetails: res.data._embedded.events[0]
+  //       })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
-  toggleMap = () => {
+  toggleMap() {
     this.setState({ shouldShowMap: !this.state.shouldShowMap });
-  };
+  }
 
   toggleSeatMap = () => {
     this.setState({ shouldShowSeatMap: !this.state.shouldShowSeatMap });
   };
 
   render() {
+    console.log("RENDER", this.props.eventDetails);
     return (
       <div>
         <EventDetailsCard
           eventDetails={this.state.eventDetails}
           toggleMap={this.toggleMap}
           toggleSeatMap={this.toggleSeatMap}
+          handleOnClick={this.props.handleOnClick}
         />
         {this.state.shouldShowMap && (
           <Map eventDetails={this.state.eventDetails} />
