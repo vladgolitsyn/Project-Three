@@ -6,26 +6,27 @@
   margin: auto;
 } */
 
-.ui.form input:not([type]),
+
+/* .ui.form input:not([type]),
 .ui.form input[type="email"],
 .ui.form input[type="password"],
 .ui.form input[type="text"],
 .ui.form input[type="time"] {
-    /* padding: 2px 10px; */
     width: 105%;
-}
+} */
 
 
 /* error message parent div */
 
 div.ui.red.message {
-    width: 105%;
+    width: 100%;
 }
 
 .btn-login,
 .btn-register {
+    margin-top: -40px !important;
     background: #8B008B !important;
-    width: 105%;
+    width: 50%;
     color: white !important;
     font-family: Arial, Helvetica, sans-serif !important;
     text-align: center;

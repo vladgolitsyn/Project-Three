@@ -50,7 +50,7 @@ class EventDetailsCard extends React.Component {
       <React.Fragment>
         <div>
           <div className="event-details-header">
-            <h1>Event Details</h1>
+            <h3>Event Details</h3>
             <a href="/events/:artistname" className="event-return-btn">
               <i className="fas fa-undo-alt event-return-btn-icon" />
               Go Back
