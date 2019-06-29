@@ -27,6 +27,7 @@ app.use(
   cors({
     origin: true,
     optionSuccessStatus: 200,
+    allowedHeaders: "Authorization",
     credentials: true
   })
 );
