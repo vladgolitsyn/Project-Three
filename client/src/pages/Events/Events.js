@@ -30,7 +30,7 @@ class Events extends React.Component {
 
     return axios
       .get(
-
+        "https://cors-anywhere.herokuapp.com/" +
           `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
             params.artistname
           }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`, 
