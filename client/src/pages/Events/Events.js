@@ -1,3 +1,4 @@
+
 import React from "react";
 // import EventList from "../../components/EventList/index";
 import axios from "axios";
@@ -12,6 +13,8 @@ import { connect } from "react-redux";
 import EventListHeader from "../../components/EventListHeader/index";
 import EventsCard from "../../components/EventsCard/index";
 // import moment from "moment";
+
+
 class Events extends React.Component {
   state = {
     events: [],
@@ -27,7 +30,7 @@ class Events extends React.Component {
 
     return axios
       .get(
-        "https://cors-anywhere.herokuapp.com/" +
+
           `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
             params.artistname
           }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`, 
