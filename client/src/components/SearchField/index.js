@@ -29,21 +29,23 @@ class SearchField extends Component {
   };
   render() {
     if (this.state.redirect) {
-      return <Redirect to={`/events/${this.state.search}`}/>;
+      return <Redirect to={`/events/${this.state.search}`} />;
     }
     return (
       <div>
         <Container style={{ width: "60%", marginTop: "30px" }}>
-          <input 
-            type="text" 
-            value={this.state.search} 
-            name="search" 
+          <input
+            type="text"
+            value={this.state.search}
+            name="search"
             onChange={this.handleInputChange}
             placeholder="Find an event..."
             id="userInput"
             style={{ height: "50px" }}
-            />
-          <button onClick={this.handleFormSubmit}>Find</button>
+          />
+          <button className="ui button" onClick={this.handleFormSubmit}>
+            Find
+          </button>
         </Container>
       </div>
     );

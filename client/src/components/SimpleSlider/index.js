@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import pic5b from "../../images/005b.png";
-import pic3b from "../../images/003b.png";
-import pic42 from "../../images/0042.png";
+import picHands from "../../images/Concert-desktop.jpg";
+import picArena from "../../images/arena.jpg";
+import "./style.css";
 
 import { Image } from "semantic-ui-react";
 
@@ -16,6 +17,7 @@ export class SimpleSlider extends Component {
       autoplay: true,
       dots: true,
       slidesToShow: 1
+
       // slidesToScroll: 1
     };
     return (
@@ -24,13 +26,13 @@ export class SimpleSlider extends Component {
           {/* <Image src={pic} /> */}
 
           <div>
-            <Image src={pic42} />
+            <Image className="slider-image" src={picHands} />
           </div>
           <div>
-            <Image src={pic3b} />
+            <Image className="slider-image" src={picArena} />
           </div>
           <div>
-            <Image src={pic5b} />
+            <Image className="slider-image" src={pic5b} />
           </div>
 
           {/* <div>

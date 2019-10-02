@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function EventListHeader() {
@@ -6,10 +7,10 @@ function EventListHeader() {
     <div>
       <div className="event-header">
         <h1>Events</h1>
-        <a href="/" className="event-return-btn">
+        <Link to="/" className="event-return-btn">
           <i className="fas fa-undo-alt event-return-btn-icon" />
           Go Back
-        </a>
+        </Link>
       </div>
     </div>
   );

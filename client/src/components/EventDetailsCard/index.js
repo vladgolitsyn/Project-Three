@@ -6,19 +6,25 @@ import SeatMap from "../../components/SeatMap/index";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 class EventDetailsCard extends React.Component {
   state = {
     shouldShowMap: false,
     shouldShowSeatMap: false
   };
 
-  toggleMap = () =>{
-    this.setState({ shouldShowMap: !this.state.shouldShowMap });
-  }
+  toggleMap = () => {
+    this.setState({
+      shouldShowMap: !this.state.shouldShowMap,
+      shouldShowSeatMap: false
+    });
+  };
 
   toggleSeatMap = () => {
-    this.setState({ shouldShowSeatMap: !this.state.shouldShowSeatMap });
+    this.setState({
+      shouldShowSeatMap: !this.state.shouldShowSeatMap,
+      shouldShowMap: false
+    });
   };
 
   // onClick = event => {
@@ -51,10 +57,10 @@ class EventDetailsCard extends React.Component {
         <div>
           <div className="event-details-header">
             <h1>Event Details</h1>
-            <a href="/events/:artistname" className="event-return-btn">
+            <Link to="/" className="event-return-btn">
               <i className="fas fa-undo-alt event-return-btn-icon" />
               Go Back
-            </a>
+            </Link>
           </div>
           {this.props.eventDetails && (
             <div>

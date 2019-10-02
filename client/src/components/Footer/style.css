@@ -1,10 +1,12 @@
 .footer {
   height: 150px;
-  background: #8B008B;
-  position: relative;
+  background: #8b008b;
+  position: absolute;
+  width: 100%;
   text-align: center;
   align-items: center;
   color: white;
+  bottom: 0;
 }
 
 .spans {
