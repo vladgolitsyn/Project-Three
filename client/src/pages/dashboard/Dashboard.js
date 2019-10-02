@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import API from "../../utils/API";
 import "./style.css";
 import { Redirect } from "react-router-dom";
-import { Button, Card, Container, Image, Header } from "semantic-ui-react";
+import { Button, Card, Container, Image} from "semantic-ui-react";
 import Footer from "../../components/Footer";
 import Profile from "../../images/profile.png";
 import { createEventGroup } from "../../actions/groupActions";
@@ -104,8 +104,9 @@ class Dashboard extends Component {
               <br />
               <br />
               {this.state.groups.map(group => {
-              return <Header.Content>{group.name}</Header.Content>;
-                {/* <Card.Description
+              return (
+
+                <Card.Description
                   style={{ display: "flex", justifyContent: "center" }}
                 >
                 <Button 
@@ -113,8 +114,10 @@ class Dashboard extends Component {
                   style={{marginTop: '20px'}}
                   >{group.name}: start chatting
                   </Button>;
-                </Card.Description> */}
-              })}
+                </Card.Description>
+              )})}
+
+
             </Card.Content>
           </Card>
         </Container>

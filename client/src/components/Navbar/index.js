@@ -13,7 +13,7 @@ class Navbar extends Component {
 
   render() {
     const { activeItem } = this.state;
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
 
     return (
       <div className="menu-div">
@@ -28,23 +28,27 @@ class Navbar extends Component {
           </Menu.Item>
 
           <Menu.Item
-            name="event"
-            as={Link}
-            to="/events"
-            active={activeItem === "event"}
-            className="menu"
-            position="right"
-            onClick={this.handleItemClick}
-          />
+              name="event"
+              as={Link}
+              to="/events"
+              active={activeItem === "event"}
+              className="menu"
+              position="right"
+              onClick={this.handleItemClick}
+              style={{marginTop: '8px'}}
+              />
+
 
           {isAuthenticated ? (
             <Menu.Menu>
+
               <Menu.Item
                 className="menu"
                 onClick={this.handleItemClick}
                 name="about"
                 as={Link}
                 to="/about"
+                style={{marginTop: '8px'}}
               />
 
               <Menu.Item
@@ -53,6 +57,7 @@ class Navbar extends Component {
                 name="profile"
                 as={Link}
                 to="/profile"
+                style={{marginTop: '8px'}}
               />
 
               <Menu.Item
@@ -61,6 +66,7 @@ class Navbar extends Component {
                 name="chat"
                 as={Link}
                 to="/chat"
+                style={{marginTop: '8px'}}
               />
 
               <Logout className="menu-link" />
@@ -68,12 +74,13 @@ class Navbar extends Component {
           ) : (
             <Menu.Menu>
               <Menu.Item
-                className="menu-link"
+                className="signin-link"
                 name="SignIn"
                 as={Link}
                 to="/login"
                 active={activeItem === "SignIn"}
                 onClick={this.handleItemClick}
+                style={{marginTop: '8px'}}
               />
             </Menu.Menu>
           )}

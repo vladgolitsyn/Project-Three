@@ -1,9 +1,10 @@
+
 import React from "react";
 // import EventList from "../../components/EventList/index";
 import axios from "axios";
 import EventDetails from "../../components/EventDetailsCard/index";
-import { Link } from "react-router-dom";
-import API from "../../utils/API";
+// import { Link } from "react-router-dom";
+// import API from "../../utils/API";
 // import { Container, Header, Button } from "semantic-ui-react";
 import { createEventGroup, setGroupChat } from "../../actions/groupActions";
 // import style from "./style.css";
@@ -11,7 +12,9 @@ import { connect } from "react-redux";
 // import EventList from "../../components/EventList/index";
 import EventListHeader from "../../components/EventListHeader/index";
 import EventsCard from "../../components/EventsCard/index";
-import moment from "moment";
+// import moment from "moment";
+
+
 class Events extends React.Component {
   state = {
     events: [],
@@ -30,8 +33,15 @@ class Events extends React.Component {
         "https://cors-anywhere.herokuapp.com/" +
           `https://app.ticketmaster.com/discovery/v2/events/?keyword=${
             params.artistname
-          }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`
-      )
+          }&apikey=${process.env.REACT_APP_TICKETMASTER_API_KEY}`, 
+          { 
+            headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Credentials": "true"
+          }
+        })
       .then(res => {
         console.log(res.data._embedded.events);
         this.setState({ events: res.data._embedded.events });

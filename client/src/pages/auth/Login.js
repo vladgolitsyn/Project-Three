@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 // import classnames from "classnames";
 import "./style.css";
-import { Button, Form, Container, Message, Header } from "semantic-ui-react";
+import { Button, Form, Container, Message, Header, Input } from "semantic-ui-react";
 
 class Login extends Component {
   constructor() {
@@ -54,8 +54,8 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <Container fluid>
-        <h1
+      <div>
+        <h3
           style={{
             marginTop: "120px",
             textAlign: "center",
@@ -63,17 +63,17 @@ class Login extends Component {
           }}
         >
           Welcome back!
-        </h1>
+        </h3>
+        <Container style={{display: 'flex', justifyContent:'center'}}>
         <Form
           onSubmit={this.onSubmit}
           className="login-form"
-          style={{ width: "30%", marginTop: "50px" }}
+          style={{width: "50%", marginBottom:'20px'}}
         >
           <Form.Field>
             {!!errors.email && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.email}
                 content=""
               />
@@ -82,21 +82,19 @@ class Login extends Component {
               <Message color="red" header={errors.emailnotfound} content="" />
             )}
             <label />
-            <input
+            <Input
               type="Email"
               id="email"
               placeholder="Email"
               value={this.state.email}
               error={errors.emailnotfound}
               onChange={this.onChange}
-              style={{ height: "40px" }}
             />
           </Form.Field>
           <Form.Field>
             {!!errors.password && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.password}
                 content=""
               />
@@ -104,34 +102,35 @@ class Login extends Component {
             {!!errors.passwordincorrect && (
               <Message
                 color="red"
-                icon="delete"
                 header={errors.passwordincorrect}
                 content=""
               />
             )}
             <label />
-            <input
+            <Input
               type="password"
               id="password"
               placeholder="Password"
               value={this.state.password}
               error={errors.passwordincorrect}
               onChange={this.onChange}
-              style={{ height: "40px" }}
             />
           </Form.Field>
-          <Button
-            className="btn-login"
-            type="submit"
-            style={{ height: "40px", marginBottom: "8px" }}
-          >
-            Log in
-          </Button>
-          <Header as="h5" style={{ textAlign: "center" }}>
+          <Container style={{display: 'flex', justifyContent:'center'}}>
+            <Button
+              className="btn-login"
+              type="submit"
+              style={{ height: "50px"}}
+            >
+              Log in
+            </Button>
+            </Container>
+          <Header as="h5" style={{ textAlign: "center"}}>
             <a href="/register">Register here</a>
           </Header>
         </Form>
-      </Container>
+        </Container>
+      </div>
     );
   }
 }

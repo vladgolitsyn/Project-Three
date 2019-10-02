@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Input, Form, Container } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import "./style.css";
-
-// handle(event)
-// {
-//   console.log(event.target)
-// }
 
 class SearchField extends Component {
   state = {
     search: "",
     redirect: false
   };
+
   handleInputChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value.toLowerCase() });
     // console.log(event.target.value);
   };
 
@@ -29,7 +23,9 @@ class SearchField extends Component {
   };
   render() {
     if (this.state.redirect) {
-      return <Redirect to={`/events/${this.state.search}`} />;
+      return (
+        <Redirect to={`/events/${this.state.search.split(" ").join("+")}`} />
+      );
     }
     return (
       <div>
@@ -41,11 +37,26 @@ class SearchField extends Component {
             onChange={this.handleInputChange}
             placeholder="Find an event..."
             id="userInput"
-            style={{ height: "50px" }}
+            style={{ height: "50px", width: "100%", textAlign: "center" }}
           />
-          <button className="ui button" onClick={this.handleFormSubmit}>
-            Find
-          </button>
+          <div
+            className="btncontainer"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <button
+              onClick={this.handleFormSubmit}
+              style={{
+                width: "20%",
+                margin: "20px auto",
+                height: "40px",
+                borderRadius: "5px",
+                background: "purple",
+                color: "white"
+              }}
+            >
+              Search
+            </button>
+          </div>
         </Container>
       </div>
     );

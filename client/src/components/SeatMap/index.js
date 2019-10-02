@@ -15,6 +15,7 @@ export default class Seatmap extends Component {
             <img
               src={this.props.eventDetails.seatmap.staticUrl}
               style={seatmapStyles}
+              alt="seats"
             />
           </div>
         )}

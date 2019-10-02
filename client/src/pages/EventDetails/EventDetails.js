@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import Map from "../../components/Map/map";
 import SeatMap from "../../components/SeatMap/index";
 import EventDetailsCard from "../../components/EventDetailsCard/index";

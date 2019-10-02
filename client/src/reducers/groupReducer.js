@@ -1,5 +1,5 @@
 import {
-  SET_EVENT_CHAT_TRYING_TO_JOIN,
+  // SET_EVENT_CHAT_TRYING_TO_JOIN,
   CREATE_EVENT_GROUP_SUCCESS
 } from "../actions/types";
 

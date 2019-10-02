@@ -1,15 +1,15 @@
 .event-header {
-  position: relative;
-  display: block;
-  width: 900px;
-  margin: 50px auto;
+    position: relative;
+    display: block;
+    width: 900px;
+    margin: 50px auto;
 }
 
 .event-return-btn:hover {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .event-return-btn-icon {
-  padding-right: 5px;
+    padding-right: 5px;
 }

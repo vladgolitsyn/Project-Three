@@ -25,8 +25,9 @@ app.use(passport.initialize());
 //cors
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: true,
     optionSuccessStatus: 200,
+    allowedHeaders: "Authorization",
     credentials: true
   })
 );
