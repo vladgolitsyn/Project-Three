@@ -25,7 +25,7 @@
         "if-env": "1.0.4",
         "is-empty": "^1.2.0",
         "jade": "~1.11.0",
-        "jsonwebtoken": "^8.5.1",
+        "jsonwebtoken": "^9.0.0",
         "jwt-decode": "^2.2.0",
         "moment": "^2.24.0",
         "mysql2": "^1.6.5",
